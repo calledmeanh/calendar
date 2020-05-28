@@ -1,0 +1,10 @@
+.time-each-date {
+  width: 24rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  border-left: 1px solid #b4c0ce;
+  &:last-child {
+    border-right: 1px solid #b4c0ce;
+  }
+}
