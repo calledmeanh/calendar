@@ -4,7 +4,9 @@ import { TimeGridContainerModule } from "./TimeGrid.container";
 import { TimeGroupContainer } from "./TimeGroup/TimeGroup.container";
 import { TimeEachDateContainer } from "./TimeEachDate/TimeEachDate.container";
 
-export const TimeGridPresenter: React.FC<TimeGridContainerModule.Presenter> = (props) => {
+export const TimeGridPresenter: React.FC<TimeGridContainerModule.Presenter> = (
+  props
+) => {
   return (
     <div className="time-grid">
       <TimeGroupContainer />

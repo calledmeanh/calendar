@@ -5,7 +5,10 @@ export declare module TimeGridContainerModule {
   export type State = {};
   export type Presenter = {};
 }
-export class TimeGridContainer extends Component<TimeGridContainerModule.Props, TimeGridContainerModule.State> {
+export class TimeGridContainer extends Component<
+  TimeGridContainerModule.Props,
+  TimeGridContainerModule.State
+> {
   render() {
     return <TimeGridPresenter />;
   }

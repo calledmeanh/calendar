@@ -9,7 +9,10 @@ export declare module TimeGroupContainerModule {
     data: string[];
   };
 }
-export class TimeGroupContainer extends Component<TimeGroupContainerModule.Props, TimeGroupContainerModule.State> {
+export class TimeGroupContainer extends Component<
+  TimeGroupContainerModule.Props,
+  TimeGroupContainerModule.State
+> {
   times = TimeService.getTimes();
   render() {
     return <TimeGroupPresenter data={this.times.data} />;
