@@ -1,4 +1,4 @@
-import { weeks } from "../mocks/week";
+import { week } from "../mocks/week";
 
 export const WeekService = {
   getWeek,
@@ -6,6 +6,6 @@ export const WeekService = {
 
 function getWeek() {
   return {
-    data: weeks,
+    data: week,
   };
 }

@@ -1,4 +1,4 @@
-export const weeks = [
+export const week = [
   "23 Monday",
   "24 Tuesday",
   "25 Wednesday",
