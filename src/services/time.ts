@@ -1,10 +1,10 @@
 import { times } from "../mocks/time";
 
 export const TimeService = {
-  getTime,
+  getTimes,
 };
 
-function getTime() {
+function getTimes() {
   return {
     data: times,
   };
