@@ -1,0 +1,11 @@
+.calendar {
+  width: 24rem * 7;
+  height: calc(100vh - 16.8rem);
+  margin: auto;
+  margin-top: calc(16.8rem / 2);
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+  border: 1px solid olivedrab;
+}
