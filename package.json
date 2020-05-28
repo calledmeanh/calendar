@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write ./src/**/*.{ts,tsx,scss}",
-    "push": "yarn format && git push origin master"
+    "push": "git push origin master",
+    "push:format": "yarn format && git add . && git commit -m 'formatted' && yarn push"
   },
   "eslintConfig": {
     "extends": "react-app"
