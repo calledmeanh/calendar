@@ -1,9 +1,13 @@
 .time-cell {
   $height: 2rem;
+  padding: 0 1.2rem;
   width: 100%;
   border-bottom: 1px solid #ddd;
   border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
   min-height: $height;
+  display: table-cell;
+  box-sizing: border-box;
   text-align: center;
   flex-flow: column nowrap;
 }
