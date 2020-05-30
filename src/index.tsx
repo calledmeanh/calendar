@@ -6,7 +6,9 @@ import "./index.scss";
 
 ReactDOM.render(
   <React.StrictMode>
-    <CalendarContainer />
+    <div style={{width: "100vw", height: "100vh", padding: "4.8rem"}}>
+      <CalendarContainer />
+    </div>
   </React.StrictMode>,
   document.getElementById("root")
 );
