@@ -36,7 +36,7 @@ const CalendarPresenter: React.FC<CalendarContainerModule.Presenter> = (
   }, []);
   return (
     <div className="calendar">
-      <CalendarContext.Provider value={{...props}}>
+      <CalendarContext.Provider value={{ ...props }}>
         <Header />
         <Content />
       </CalendarContext.Provider>
