@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DayColumnPresenter from "./DayColumn.presenter";
-import { TCalendar } from "../../../../models/calendar";
+import { TCalendar } from "../../../../models";
 
 export declare module DayColumnContainerModule {
   export type Props = TCalendar;

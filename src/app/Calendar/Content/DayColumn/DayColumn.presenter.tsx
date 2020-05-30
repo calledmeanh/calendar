@@ -1,7 +1,7 @@
 import React from "react";
 import "./DayColumn.style.scss";
 import { DayColumnContainerModule } from "./DayColumn.container";
-import TimeService from "../../../../services/time";
+import { TimeService } from "../../../../services";
 import DayCell from "../DayCell";
 import EventGroup from "../../EventGroup";
 

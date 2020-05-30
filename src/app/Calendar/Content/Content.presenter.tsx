@@ -1,60 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Content.style.scss";
 import { ContentContainerModule } from "./Content.container";
 import TimeColumn from "./TimeColumn";
 import DayColumn from "./DayColumn";
+import { CalendarContext } from "../../../constants";
 
 const ContentPresenter: React.FC<ContentContainerModule.Prensenter> = () => {
+  const { duration, displayDuration, workingTime, dayTime } = useContext(
+    CalendarContext
+  );
+  const childProps = {
+    duration,
+    displayDuration,
+    workingTime,
+    dayTime,
+  };
   return (
     <div className="content">
-      <TimeColumn
-        duration={60 * 30}
-        displayDuration={60 * 60}
-        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
-        dayTime={{ start: 0, end: 3600 * 24 }}
-      />
-      <DayColumn
-        duration={60 * 30}
-        displayDuration={60 * 60}
-        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
-        dayTime={{ start: 0, end: 3600 * 24 }}
-      />
-      <DayColumn
-        duration={60 * 30}
-        displayDuration={60 * 60}
-        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
-        dayTime={{ start: 0, end: 3600 * 24 }}
-      />
-      <DayColumn
-        duration={60 * 30}
-        displayDuration={60 * 60}
-        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
-        dayTime={{ start: 0, end: 3600 * 24 }}
-      />
-      <DayColumn
-        duration={60 * 30}
-        displayDuration={60 * 60}
-        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
-        dayTime={{ start: 0, end: 3600 * 24 }}
-      />
-      <DayColumn
-        duration={60 * 30}
-        displayDuration={60 * 60}
-        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
-        dayTime={{ start: 0, end: 3600 * 24 }}
-      />
-      <DayColumn
-        duration={60 * 30}
-        displayDuration={60 * 60}
-        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
-        dayTime={{ start: 0, end: 3600 * 24 }}
-      />
-      <DayColumn
-        duration={60 * 30}
-        displayDuration={60 * 60}
-        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
-        dayTime={{ start: 0, end: 3600 * 24 }}
-      />
+      <TimeColumn {...childProps} />
+      <DayColumn {...childProps} />
+      <DayColumn {...childProps} />
+      <DayColumn {...childProps} />
+      <DayColumn {...childProps} />
+      <DayColumn {...childProps} />
+      <DayColumn {...childProps} />
+      <DayColumn {...childProps} />
     </div>
   );
 };

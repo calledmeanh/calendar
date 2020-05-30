@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import TimeColumnPresenter from "./TimeColumn.presenter";
-import { TCalendar } from "../../../../models/calendar";
+import { TCalendar } from "../../../../models";
 
 export declare module TimeColumnContainerModule {
   export type Props = TCalendar;

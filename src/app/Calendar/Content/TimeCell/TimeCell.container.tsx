@@ -3,11 +3,13 @@ import TimeCellPresenter from "./TimeCell.presenter";
 
 export declare module TimeCellContainerModule {
   export type Props = {
-    data: string;
+    data: number;
+    isWorkingTime: boolean;
   };
   export type State = {};
   export type Presenter = {
-    data: string;
+    data: number;
+    isWorkingTime: boolean;
   };
 }
 

@@ -2,8 +2,12 @@ import React, { useEffect } from "react";
 import "./Calendar.style.scss";
 import Header from "./Header";
 import Content from "./Content";
+import { CalendarContext } from "../../constants";
+import { CalendarContainerModule } from "./Calendar.container";
 
-const CalendarPresenter: React.FC = (props) => {
+const CalendarPresenter: React.FC<CalendarContainerModule.Presenter> = (
+  props
+) => {
   useEffect(() => {
     /* calculate first column */
     let width = 0;
@@ -32,8 +36,10 @@ const CalendarPresenter: React.FC = (props) => {
   }, []);
   return (
     <div className="calendar">
-      <Header />
-      <Content />
+      <CalendarContext.Provider value={{...props}}>
+        <Header />
+        <Content />
+      </CalendarContext.Provider>
     </div>
   );
 };
