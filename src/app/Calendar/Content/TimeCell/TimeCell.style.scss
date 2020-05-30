@@ -1,0 +1,9 @@
+.time-cell {
+  $height: 2rem;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  min-height: $height;
+  text-align: center;
+  flex-flow: column nowrap;
+}
