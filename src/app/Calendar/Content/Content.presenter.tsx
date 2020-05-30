@@ -13,7 +13,48 @@ const ContentPresenter: React.FC<ContentContainerModule.Prensenter> = () => {
         workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
         dayTime={{ start: 0, end: 3600 * 24 }}
       />
-      <DayColumn />
+      <DayColumn
+        duration={60 * 30}
+        displayDuration={60 * 60}
+        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
+        dayTime={{ start: 0, end: 3600 * 24 }}
+      />
+      <DayColumn
+        duration={60 * 30}
+        displayDuration={60 * 60}
+        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
+        dayTime={{ start: 0, end: 3600 * 24 }}
+      />
+      <DayColumn
+        duration={60 * 30}
+        displayDuration={60 * 60}
+        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
+        dayTime={{ start: 0, end: 3600 * 24 }}
+      />
+      <DayColumn
+        duration={60 * 30}
+        displayDuration={60 * 60}
+        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
+        dayTime={{ start: 0, end: 3600 * 24 }}
+      />
+      <DayColumn
+        duration={60 * 30}
+        displayDuration={60 * 60}
+        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
+        dayTime={{ start: 0, end: 3600 * 24 }}
+      />
+      <DayColumn
+        duration={60 * 30}
+        displayDuration={60 * 60}
+        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
+        dayTime={{ start: 0, end: 3600 * 24 }}
+      />
+      <DayColumn
+        duration={60 * 30}
+        displayDuration={60 * 60}
+        workingTime={{ start: 3600 * 9, end: 3600 * 18 }}
+        dayTime={{ start: 0, end: 3600 * 24 }}
+      />
     </div>
   );
 };
