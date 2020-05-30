@@ -6,7 +6,7 @@ import { LabelContainer } from "./Label/Label.container";
 export const HeaderPresenter: React.FC = (props) => {
   return (
     <div className="header">
-      <LabelContainer />
+      <LabelContainer width={"8.8rem"} />
       <WeekContainer />
     </div>
   );

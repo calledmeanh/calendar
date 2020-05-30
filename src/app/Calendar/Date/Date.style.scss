@@ -1,25 +1,15 @@
 .date {
-  width: 24rem;
-  min-width: 24rem;
-  max-width: 24rem;
-  height: 6.5rem;
-  min-height: 6.5rem;
-  max-height: 6.5rem;
-  background-color: #fff;
+  flex: 1 0;
+  font-size: 1.6rem;
+  padding: 0 0.4rem;
+  background-color: transparent;
   border: none;
   border-bottom: 1px solid #cad4e0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &-number {
-    font-weight: bold;
-    font-size: 2rem;
-    color: #2d3742;
-  }
-  &-text {
-    margin-left: 1.6rem;
-    font-size: 2rem;
-    color: #7d8596;
-    text-transform: uppercase;
-  }
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-height: 0;
+  border-bottom: 1px solid #ddd;
 }
