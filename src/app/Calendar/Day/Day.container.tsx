@@ -12,7 +12,10 @@ export declare module DayContainerModule {
   };
 }
 
-class DayContainer extends Component<DayContainerModule.Props, DayContainerModule.State> {
+class DayContainer extends Component<
+  DayContainerModule.Props,
+  DayContainerModule.State
+> {
   render() {
     return <DayPresenter data={this.props.data} />;
   }

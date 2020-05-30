@@ -7,7 +7,10 @@ export declare module ContentContainerModule {
   export type Prensenter = {};
 }
 
-class ContentContainer extends Component<ContentContainerModule.Props, ContentContainerModule.State> {
+class ContentContainer extends Component<
+  ContentContainerModule.Props,
+  ContentContainerModule.State
+> {
   render() {
     return <ContentPresenter />;
   }

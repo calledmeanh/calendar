@@ -7,11 +7,16 @@ export declare module UserAvaContainerModule {
     data: string & React.ReactNode;
   };
 }
-class UserAvaContainer extends Component<UserAvaContainerModule.Props, UserAvaContainerModule.State> {
+class UserAvaContainer extends Component<
+  UserAvaContainerModule.Props,
+  UserAvaContainerModule.State
+> {
   render() {
     return (
       <UserAvaPresenter
-        data={"https://www.iconninja.com/files/445/434/573/man-user-person-male-profile-avatar-icon.png"}
+        data={
+          "https://www.iconninja.com/files/445/434/573/man-user-person-male-profile-avatar-icon.png"
+        }
       />
     );
   }

@@ -12,7 +12,10 @@ export declare module WeekContainerModule {
   };
 }
 
-class WeekContainer extends Component<WeekContainerModule.State, WeekContainerModule.Props> {
+class WeekContainer extends Component<
+  WeekContainerModule.State,
+  WeekContainerModule.Props
+> {
   week = WeekService.getWeek();
   render() {
     return <WeekPresenter data={this.week.data} />;

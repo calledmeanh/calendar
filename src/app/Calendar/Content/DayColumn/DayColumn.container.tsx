@@ -8,7 +8,10 @@ export declare module DayColumnContainerModule {
   export type Presenter = TCalendar;
 }
 
-class DayColumnContainer extends Component<DayColumnContainerModule.Props, DayColumnContainerModule.State> {
+class DayColumnContainer extends Component<
+  DayColumnContainerModule.Props,
+  DayColumnContainerModule.State
+> {
   render() {
     return <DayColumnPresenter {...this.props} />;
   }

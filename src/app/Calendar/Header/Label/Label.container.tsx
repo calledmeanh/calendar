@@ -13,7 +13,10 @@ export declare module LabelContainerModule {
   };
 }
 
-class LabelContainer extends Component<LabelContainerModule.Props, LabelContainerModule.State> {
+class LabelContainer extends Component<
+  LabelContainerModule.Props,
+  LabelContainerModule.State
+> {
   render() {
     return <LabelPresenter item={<UserAva />} width={this.props.width} />;
   }

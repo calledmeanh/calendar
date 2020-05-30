@@ -11,7 +11,9 @@ function covertHourToSeconds(hour: number, minute: number): number {
   return result;
 }
 
-function covertSecondsToHour(seconds: number): { hour: number; minute: number } {
+function covertSecondsToHour(
+  seconds: number
+): { hour: number; minute: number } {
   const hour = Math.floor(seconds / SECONDS_PER_HOUR);
   const minute = (seconds - hour * SECONDS_PER_HOUR) / SECONDS_PER_MINUTE;
   return {

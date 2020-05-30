@@ -11,9 +11,12 @@ export declare module TimeCellContainerModule {
   };
 }
 
-class TimeCellContainer extends Component<TimeCellContainerModule.Props, TimeCellContainerModule.State> {
+class TimeCellContainer extends Component<
+  TimeCellContainerModule.Props,
+  TimeCellContainerModule.State
+> {
   render() {
-    return <TimeCellPresenter {...this.props}/>;
+    return <TimeCellPresenter {...this.props} />;
   }
 }
 
