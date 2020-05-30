@@ -1,11 +1,12 @@
 import React from "react";
 import "./Calendar.style.scss";
-import { HeaderContainer } from "./Header/Header.container";
+import Header from "./Header";
 
-export const CalendarPresenter: React.FC = (props) => {
+const CalendarPresenter: React.FC = (props) => {
   return (
     <div className="calendar">
-      <HeaderContainer />
+      <Header />
     </div>
   );
 };
+export default CalendarPresenter;

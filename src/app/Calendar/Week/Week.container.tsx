@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { WeekPresenter } from "./Week.presenter";
+import WeekPresenter from "./Week.presenter";
 import { WeekService } from "../../../services/week";
 
 export declare module WeekContainerModule {
@@ -12,12 +12,11 @@ export declare module WeekContainerModule {
   };
 }
 
-export class WeekContainer extends Component<
-  WeekContainerModule.State,
-  WeekContainerModule.Props
-> {
+class WeekContainer extends Component<WeekContainerModule.State, WeekContainerModule.Props> {
   week = WeekService.getWeek();
   render() {
     return <WeekPresenter data={this.week.data} />;
   }
 }
+
+export default WeekContainer;

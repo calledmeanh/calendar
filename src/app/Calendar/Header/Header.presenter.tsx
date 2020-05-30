@@ -1,13 +1,15 @@
 import React from "react";
 import "./Header.style.scss";
-import { WeekContainer } from "../Week/Week.container";
-import { LabelContainer } from "./Label/Label.container";
+import Label from "./Label";
+import Week from "../Week";
 
-export const HeaderPresenter: React.FC = (props) => {
+const HeaderPresenter: React.FC = (props) => {
   return (
     <div className="header">
-      <LabelContainer width={"8.8rem"} />
-      <WeekContainer />
+      <Label width={"8.8rem"} />
+      <Week />
     </div>
   );
 };
+
+export default HeaderPresenter;

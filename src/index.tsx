@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-import { CalendarContainer } from "./app/Calendar/Calendar.container";
 import "./index.scss";
+import Calendar from "./app/Calendar";
 
 ReactDOM.render(
   <React.StrictMode>
-    <div style={{width: "100vw", height: "100vh", padding: "4.8rem"}}>
-      <CalendarContainer />
+    <div style={{ width: "100vw", height: "100vh", padding: "4.8rem" }}>
+      <Calendar />
     </div>
   </React.StrictMode>,
   document.getElementById("root")

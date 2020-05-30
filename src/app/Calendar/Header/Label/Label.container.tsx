@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { LabelPresenter } from "./Label.presenter";
-import { UserAvaContainer } from "../../UserAva/UserAva.container";
+import LabelPresenter from "./Label.presenter";
+import UserAva from "../../UserAva";
 
 export declare module LabelContainerModule {
   export type Props = {
@@ -13,8 +13,10 @@ export declare module LabelContainerModule {
   };
 }
 
-export class LabelContainer extends Component<LabelContainerModule.Props, LabelContainerModule.State> {
+class LabelContainer extends Component<LabelContainerModule.Props, LabelContainerModule.State> {
   render() {
-    return <LabelPresenter item={<UserAvaContainer />} width={this.props.width} />;
+    return <LabelPresenter item={<UserAva />} width={this.props.width} />;
   }
 }
+
+export default LabelContainer;
