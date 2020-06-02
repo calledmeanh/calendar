@@ -1,4 +1,6 @@
-export type TCalendar = {
+import { TEvent } from "./event";
+
+export type TCalendarssss = {
   duration: number;
   displayDuration: number;
   workingTime: TDayTime;
@@ -19,6 +21,7 @@ export type TCalendarProps = {
   workingTime: TDayTime;
   dayTime?: TDayTime;
   timeFormat?: TTimeFormat;
+  events?: TEvent[] | undefined;
 };
 
 export type TCalendarContext = {
@@ -27,4 +30,5 @@ export type TCalendarContext = {
   workingTime: TDayTime;
   dayTime: TDayTime;
   timeFormat: TTimeFormat;
+  events?: TEvent[] | undefined;
 };

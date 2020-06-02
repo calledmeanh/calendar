@@ -4,6 +4,7 @@ import * as serviceWorker from "./serviceWorker";
 import "./index.scss";
 import Calendar from "./app/Calendar";
 import { DEFAULT_DURATION, DEFAULT_WORKING_TIME } from "./constants";
+import { EVENTS } from "./mocks";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,9 +14,10 @@ ReactDOM.render(
         workingTime={DEFAULT_WORKING_TIME}
 
         // for test
-        timeFormat={12}
-        displayDuration={1800}
-        dayTime={{start: 21600, end: 72000}}
+        // timeFormat={12}
+        // displayDuration={1800}
+        dayTime={{start: 25200, end: 64800}}
+        events={EVENTS}
       />
     </div>
   </React.StrictMode>,

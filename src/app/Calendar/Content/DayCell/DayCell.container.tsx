@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import DayCellPresenter from "./DayCell.presenter";
 
 export declare module DayCellContainerModule {
-  export type Props = { data: string };
+  export type Props = { data: string; isWorkingTime: boolean };
   export type State = {};
-  export type Presenter = { data: string };
+  export type Presenter = { data: string; isWorkingTime: boolean };
 }
 
 class DayCellContainer extends Component<

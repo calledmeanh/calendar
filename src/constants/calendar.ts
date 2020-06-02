@@ -8,3 +8,7 @@ export const DEFAULT_WORKING_TIME: TDayTime = {
   start: 28800,
   end: 61200,
 };
+
+export const DEFAULT_DATE_FOTMAT = "YYYY-MM-DD";
+export const DEFAULT_TIME_FOTMAT = "hh:mm:ss";
+export const DEFAULT_DATE_TIME_FOTMAT = "DD MM YYYY hh:mm:ss";

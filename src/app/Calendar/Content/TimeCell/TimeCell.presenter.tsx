@@ -13,7 +13,7 @@ const TimeCellPresenter: React.FC<TimeCellContainerModule.Presenter> = (
   return (
     <div
       className="time-cell"
-      style={{ backgroundColor: props.isWorkingTime ? "#fff" : "" }}
+      style={{ backgroundColor: props.isWorkingTime ? "#cccccc" : "" }}
     >
       {TimeService.checkToDisplayTime(
         props.data,

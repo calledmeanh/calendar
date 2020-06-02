@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import TimeColumnPresenter from "./TimeColumn.presenter";
-import { TCalendar } from "../../../../models";
 
 export declare module TimeColumnContainerModule {
-  export type Props = TCalendar;
+  export type Props = {};
   export type State = {};
-  export type Presenter = TCalendar;
+  export type Presenter = {};
 }
 
 class TimeColumnContainer extends Component<
@@ -13,7 +12,7 @@ class TimeColumnContainer extends Component<
   TimeColumnContainerModule.State
 > {
   render() {
-    return <TimeColumnPresenter {...this.props} />;
+    return <TimeColumnPresenter />;
   }
 }
 

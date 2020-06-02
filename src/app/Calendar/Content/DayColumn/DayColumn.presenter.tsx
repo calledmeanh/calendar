@@ -1,25 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./DayColumn.style.scss";
 import { DayColumnContainerModule } from "./DayColumn.container";
 import { TimeService } from "../../../../services";
 import DayCell from "../DayCell";
 import EventGroup from "../../EventGroup";
+import { CalendarContext } from "../../../../constants";
 
 const DayColumnPresenter: React.FC<DayColumnContainerModule.Presenter> = (
   props
 ) => {
+  const context = useContext(CalendarContext);
+
   const times = TimeService.calcTimeJump(
-    props.dayTime.end,
-    props.dayTime.start,
-    props.duration
+    context.dayTime.end,
+    context.dayTime.start,
+    context.duration
   );
   return (
     <div className="day-column">
       {new Array(times).fill(0).map((t, i) => {
-        const time = TimeService.covertSecondsToHour(
-          props.dayTime.start + i * props.duration
+        const currentTime = context.dayTime.start + i * context.duration;
+
+        return (
+          <DayCell
+            key={i}
+            data=""
+            isWorkingTime={TimeService.checkWorkingTime(
+              context.dayTime,
+              context.workingTime,
+              currentTime
+            )}
+          />
         );
-        return <DayCell key={i} data={`${time.hour}:${time.minute}`} />;
       })}
       <EventGroup />
     </div>
