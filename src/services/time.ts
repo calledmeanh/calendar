@@ -1,5 +1,9 @@
-import { SECONDS_PER_HOUR, SECONDS_PER_MINUTE } from "../constants";
-import { TDayTime } from "../models";
+import {
+  SECONDS_PER_HOUR,
+  SECONDS_PER_MINUTE,
+  HAFT_DAY_SECONDS,
+} from "../constants";
+import { TDayTime, TTimeFormat } from "../models";
 
 export const TimeService = {
   covertHourToSeconds,
@@ -40,9 +44,25 @@ function checkToDisplayTime(
   return (current - start) % displayDuration === 0 ? true : false;
 }
 
-function convertSecondsToHourString(seconds: number): string {
-  const { hour, minute } = covertSecondsToHour(seconds);
-  return `${("0" + hour).slice(-2)}:${("0" + minute).slice(-2)}`;
+function convertSecondsToHourString(
+  seconds: number,
+  timeFormat?: TTimeFormat
+): string {
+  let tempSeconds = seconds;
+  if (timeFormat === 12 && seconds >= 13 * SECONDS_PER_HOUR) {
+    tempSeconds = seconds - 12 * SECONDS_PER_HOUR;
+  }
+  let time = covertSecondsToHour(Math.abs(tempSeconds));
+
+  let timeString = `${formatHourOrMinute(time.hour)}:${formatHourOrMinute(
+    time.minute
+  )}`;
+
+  if (timeFormat === 12) {
+    timeString = `${timeString} ${seconds <= HAFT_DAY_SECONDS ? "AM" : "PM"}`;
+  }
+
+  return timeString;
 }
 
 function checkWorkingTime(
@@ -60,4 +80,8 @@ function checkWorkingTime(
   }
 
   return false;
+}
+
+function formatHourOrMinute(data: number): string {
+  return ("0" + data).slice(-2);
 }

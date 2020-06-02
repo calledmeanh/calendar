@@ -13,8 +13,9 @@ ReactDOM.render(
         workingTime={DEFAULT_WORKING_TIME}
 
         // for test
-        // displayDuration={1800}
-        // dayTime={{start: 21600, end: 72000}}
+        timeFormat={12}
+        displayDuration={1800}
+        dayTime={{start: 21600, end: 72000}}
       />
     </div>
   </React.StrictMode>,

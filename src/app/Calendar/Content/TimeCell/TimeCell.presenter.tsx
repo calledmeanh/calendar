@@ -7,7 +7,9 @@ import { TimeService } from "../../../../services";
 const TimeCellPresenter: React.FC<TimeCellContainerModule.Presenter> = (
   props
 ) => {
-  const { displayDuration, workingTime } = useContext(CalendarContext);
+  const { displayDuration, workingTime, timeFormat } = useContext(
+    CalendarContext
+  );
   return (
     <div
       className="time-cell"
@@ -18,7 +20,7 @@ const TimeCellPresenter: React.FC<TimeCellContainerModule.Presenter> = (
         workingTime.start,
         displayDuration
       )
-        ? TimeService.convertSecondsToHourString(props.data)
+        ? TimeService.convertSecondsToHourString(props.data, timeFormat)
         : ""}
     </div>
   );

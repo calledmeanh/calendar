@@ -1,11 +1,12 @@
 import React from "react";
 import CalendarPresenter from "./Calendar.presenter";
-import { TCalendarProps, TCalendar } from "../../models";
+import { TCalendarProps, TCalendarContext } from "../../models";
+import { DEFAULT_TIME_FORMAT } from "../../constants";
 
 export declare module CalendarContainerModule {
   export type Props = TCalendarProps;
   export type State = {};
-  export type Presenter = TCalendar;
+  export type Presenter = TCalendarContext;
 }
 
 class CalendarContainer extends React.Component<
@@ -13,14 +14,15 @@ class CalendarContainer extends React.Component<
   CalendarContainerModule.State
 > {
   render() {
-    return (
-      <CalendarPresenter
-        duration={this.props.duration}
-        displayDuration={this.props.displayDuration || this.props.duration}
-        workingTime={this.props.workingTime}
-        dayTime={this.props.dayTime || this.props.workingTime}
-      />
-    );
+    const calendarDatas: TCalendarContext = {
+      duration: this.props.duration,
+      displayDuration: this.props.displayDuration || this.props.duration,
+      workingTime: this.props.workingTime,
+      dayTime: this.props.dayTime || this.props.workingTime,
+      timeFormat: this.props.timeFormat || DEFAULT_TIME_FORMAT,
+    };
+
+    return <CalendarPresenter {...calendarDatas} />;
   }
 }
 
