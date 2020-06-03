@@ -16,6 +16,7 @@ const DayColumnPresenter: React.FC<DayColumnContainerModule.Presenter> = (
     context.dayTime.start,
     context.duration
   );
+
   return (
     <div className="day-column">
       {new Array(times).fill(0).map((t, i) => {
@@ -33,7 +34,7 @@ const DayColumnPresenter: React.FC<DayColumnContainerModule.Presenter> = (
           />
         );
       })}
-      <EventGroup />
+      <EventGroup events={props.events} />
     </div>
   );
 };

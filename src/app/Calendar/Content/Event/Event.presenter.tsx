@@ -1,6 +1,29 @@
 import React from "react";
 import "./Event.style.scss";
-const EventPresenter = () => {
-  return <div className="event"></div>;
+import { TEvent } from "../../../../models";
+import moment from "moment";
+import { DEFAULT_DATE_TIME_FOTMAT } from "../../../../constants";
+
+interface Props {
+  top: string;
+  bottom: string;
+  event: TEvent;
+}
+
+const EventPresenter: React.FC<Props> = (props) => {
+  return (
+    <div style={{ top: props.top, bottom: props.bottom }} className="event">
+      <div className="event-title">{props.event.title}</div>
+      <div className="event-content">
+        <div>
+          Start:{" "}
+          {moment(props.event.timeStart).format(DEFAULT_DATE_TIME_FOTMAT)}
+        </div>
+        <div>
+          End: {moment(props.event.timeEnd).format(DEFAULT_DATE_TIME_FOTMAT)}
+        </div>
+      </div>
+    </div>
+  );
 };
 export default EventPresenter;

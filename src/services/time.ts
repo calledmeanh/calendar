@@ -12,7 +12,23 @@ export const TimeService = {
   checkToDisplayTime,
   convertSecondsToHourString,
   checkWorkingTime,
+  calcDistanceBetweenTimes,
 };
+
+function calcDistanceBetweenTimes(
+  end: number,
+  start: number,
+  duration: number,
+  lineHeight: number
+): number {
+  const jumps = calcTimeJump(end, start, duration);
+  let height: number = jumps * lineHeight;
+
+  const rest = end - (duration * jumps + start);
+  const restHeight = (rest * lineHeight) / duration;
+
+  return height + restHeight;
+}
 
 function covertHourToSeconds(hour: number, minute: number): number {
   const result = hour * SECONDS_PER_HOUR + minute * SECONDS_PER_MINUTE;

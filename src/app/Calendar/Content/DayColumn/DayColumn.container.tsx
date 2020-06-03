@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import DayColumnPresenter from "./DayColumn.presenter";
+import { TEvent } from "../../../../models";
 
 export declare module DayColumnContainerModule {
-  export type Props = {};
+  export type Props = {
+    events: TEvent[] | undefined;
+  };
   export type State = {};
-  export type Presenter = {};
+  export type Presenter = { events: TEvent[] | undefined };
 }
 
 class DayColumnContainer extends Component<
@@ -12,7 +15,7 @@ class DayColumnContainer extends Component<
   DayColumnContainerModule.State
 > {
   render() {
-    return <DayColumnPresenter />;
+    return <DayColumnPresenter events={this.props.events} />;
   }
 }
 

@@ -1,14 +1,82 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
 import "./EventGroup.style.scss";
 import { EventGroupContainerModule } from "./EventGroup.container";
-import EventPresenter from "../Content/Event/Event.presenter";
+import Event from "../Content/Event/Event.presenter";
+import { TDayTime, TEvent } from "../../../models";
+import { CalendarContext } from "../../../constants";
+import { TimeService } from "../../../services";
 
 const EventGroupPresenter: React.FC<EventGroupContainerModule.Prensenter> = (
   props
 ) => {
+  const context = useContext(CalendarContext);
+  const [timeCellPos, setTimeCellPos] = useState<any>(null);
+  const calcEventPosition = (dayTime: TDayTime, evt: TEvent, eventPos: any) => {
+    const evtStartTime = new Date(evt.timeStart);
+    const evtEndTime = new Date(evt.timeEnd);
+    const evtStartSeconds = TimeService.covertHourToSeconds(
+      evtStartTime.getHours(),
+      evtStartTime.getMinutes()
+    );
+    const evtEndSeconds = TimeService.covertHourToSeconds(
+      evtEndTime.getHours(),
+      evtEndTime.getMinutes()
+    );
+
+    const top = TimeService.calcDistanceBetweenTimes(
+      evtStartSeconds,
+      dayTime.start,
+      context.duration,
+      eventPos.height
+    );
+    const bottom = TimeService.calcDistanceBetweenTimes(
+      dayTime.end,
+      evtEndSeconds,
+      context.duration,
+      eventPos.height
+    );
+
+    return {
+      top,
+      bottom,
+    };
+  };
+
+  const getLineHeightEvent = () => {
+    const timeCell = document.querySelector(".time-cell");
+
+    return timeCell?.getBoundingClientRect();
+  };
+
+  const handleResponsive = () => {
+    setTimeCellPos(getLineHeightEvent());
+  };
+
+  useEffect(() => {
+    handleResponsive();
+    window.addEventListener("resize", handleResponsive);
+    return () => {
+      window.removeEventListener("resize", handleResponsive);
+    };
+  }, []);
+
   return (
     <div className="event-group">
-      <EventPresenter />
+      {timeCellPos &&
+        props.events &&
+        props.events.length > 0 &&
+        props.events.map((e) => {
+          const evtPos = calcEventPosition(context.dayTime, e, timeCellPos);
+
+          return (
+            <Event
+              key={e.id}
+              top={`${evtPos.top}px`}
+              bottom={`${evtPos.bottom}px`}
+              event={e}
+            />
+          );
+        })}
     </div>
   );
 };
