@@ -29,16 +29,16 @@ const EventGroupPresenter: React.FC<EventGroupContainerModule.Prensenter> = (
       context.duration,
       eventPos.height
     );
-    const bottom = TimeService.calcDistanceBetweenTimes(
-      dayTime.end,
+    const height = TimeService.calcDistanceBetweenTimes(
       evtEndSeconds,
-      context.duration,
-      eventPos.height
+      evtStartSeconds,
+      300,
+      (eventPos.height * 300) / context.duration
     );
 
     return {
       top,
-      bottom,
+      height,
     };
   };
 
@@ -72,7 +72,7 @@ const EventGroupPresenter: React.FC<EventGroupContainerModule.Prensenter> = (
             <Event
               key={e.id}
               top={`${evtPos.top}px`}
-              bottom={`${evtPos.bottom}px`}
+              height={`${evtPos.height}px`}
               event={e}
             />
           );

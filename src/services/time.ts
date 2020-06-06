@@ -48,7 +48,7 @@ function covertSecondsToHour(
 
 function calcTimeJump(end: number, start: number, duration: number) {
   const S = end - start;
-  const step = S / duration + 1;
+  const step = S / duration;
   return Math.floor(step);
 }
 

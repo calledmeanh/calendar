@@ -6,13 +6,21 @@ import { DEFAULT_DATE_TIME_FOTMAT } from "../../../../constants";
 
 interface Props {
   top: string;
-  bottom: string;
+  bottom?: string;
   event: TEvent;
+  height?: string;
 }
 
 const EventPresenter: React.FC<Props> = (props) => {
   return (
-    <div style={{ top: props.top, bottom: props.bottom }} className="event">
+    <div
+      style={{
+        top: props.top,
+        bottom: props.bottom || "unset",
+        height: props.height || "unset",
+      }}
+      className="event"
+    >
       <div className="event-title">{props.event.title}</div>
       <div className="event-content">
         <div>

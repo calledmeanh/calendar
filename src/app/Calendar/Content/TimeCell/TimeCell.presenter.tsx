@@ -7,21 +7,24 @@ import { TimeService } from "../../../../services";
 const TimeCellPresenter: React.FC<TimeCellContainerModule.Presenter> = (
   props
 ) => {
-  const { displayDuration, workingTime, timeFormat } = useContext(
+  const { displayDuration, workingTime, timeFormat, dayTime } = useContext(
     CalendarContext
   );
   return (
     <div
       className="time-cell"
-      style={{ backgroundColor: props.isWorkingTime ? "#cccccc" : "" }}
+      // style={{ backgroundColor: props.isWorkingTime ? "#cccccc" : "" }}
     >
-      {TimeService.checkToDisplayTime(
-        props.data,
-        workingTime.start,
-        displayDuration
-      )
-        ? TimeService.convertSecondsToHourString(props.data, timeFormat)
-        : ""}
+      <span className="time-cell-data">
+        {TimeService.checkToDisplayTime(
+          props.data,
+          workingTime.start,
+          displayDuration
+        ) && props.data !== dayTime.start
+          ? TimeService.convertSecondsToHourString(props.data, timeFormat)
+          : ""}
+      </span>
+      <div className="time-cell-line"></div>
     </div>
   );
 };

@@ -14,9 +14,9 @@ ReactDOM.render(
         workingTime={DEFAULT_WORKING_TIME}
 
         // for test
-        // timeFormat={12}
+        timeFormat={12}
         // displayDuration={1800}
-        dayTime={{start: 25200, end: 64800}}
+        dayTime={{start: 25200, end: 72000}}
         events={EVENTS}
       />
     </div>
