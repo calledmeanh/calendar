@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ContentPresenter from "./Content.presenter";
+import { CalendarContext } from "../../../constants";
+import { TimeService } from "../../../services";
 
 export declare module ContentContainerModule {
   export type Props = {};
@@ -7,6 +9,7 @@ export declare module ContentContainerModule {
 }
 
 class ContentContainer extends Component<ContentContainerModule.Props, ContentContainerModule.State> {
+  static contextType = CalendarContext;
   getOffset = (elem: any, dir: "left" | "top") => {
     const offset = dir === "left" ? "offsetLeft" : "offsetTop";
     let offsetLeft = 0;
@@ -45,6 +48,8 @@ class ContentContainer extends Component<ContentContainerModule.Props, ContentCo
         ghost.style.top = top + "px";
         ghost.style.width = dcBox.width + "px";
         ghost.style.height = dcBox.height + "px";
+        const seconds = lineIdx * self.context.duration + self.context.dayTime.start;
+        ghost.innerHTML = TimeService.convertSecondsToHourString(seconds, self.context.timeFormat);
       });
     });
   }
