@@ -4,7 +4,6 @@ import ContentPresenter from "./Content.presenter";
 export declare module ContentContainerModule {
   export type Props = {};
   export type State = {};
-  export type Prensenter = {};
 }
 
 class ContentContainer extends Component<

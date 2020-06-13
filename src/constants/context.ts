@@ -12,4 +12,5 @@ export const CalendarContext = React.createContext<TCalendarContext>({
   workingTime: DEFAULT_WORKING_TIME,
   dayTime: DEFAULT_WORKING_TIME,
   timeFormat: DEFAULT_TIME_FORMAT,
+  label: ""
 });

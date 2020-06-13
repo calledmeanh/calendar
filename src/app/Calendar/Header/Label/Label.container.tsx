@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 import LabelPresenter from "./Label.presenter";
-import UserAva from "../../UserAva";
 
 export declare module LabelContainerModule {
   export type Props = {
     width: number | string;
+    item: string | React.ReactNode;
   };
   export type State = {};
-  export type Presenter = {
-    item: string | React.ReactNode;
-    width: number | string;
-  };
 }
 
 class LabelContainer extends Component<
@@ -18,7 +14,7 @@ class LabelContainer extends Component<
   LabelContainerModule.State
 > {
   render() {
-    return <LabelPresenter item={<UserAva />} width={this.props.width} />;
+    return <LabelPresenter item={this.props.item} />;
   }
 }
 

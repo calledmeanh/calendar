@@ -7,7 +7,7 @@ import DayColumn from "./DayColumn";
 import { CalendarContext, DEFAULT_DATE_FOTMAT } from "../../../constants";
 import { week } from "../../../mocks";
 
-const ContentPresenter: React.FC<ContentContainerModule.Prensenter> = () => {
+const ContentPresenter: React.FC<ContentContainerModule.Props> = () => {
   const {
     duration,
     displayDuration,
@@ -23,7 +23,7 @@ const ContentPresenter: React.FC<ContentContainerModule.Prensenter> = () => {
   };
 
   let mappingEvents: { [key: string]: any } = {};
-  if (events && events.length > 0) {
+  if (events && events.length) {
     for (let i = 0; i < events.length; i++) {
       const evtDay = moment(events[i].timeStart)
         .format(DEFAULT_DATE_FOTMAT)

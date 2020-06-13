@@ -7,10 +7,6 @@ export declare module TimeCellContainerModule {
     isWorkingTime: boolean;
   };
   export type State = {};
-  export type Presenter = {
-    data: number;
-    isWorkingTime: boolean;
-  };
 }
 
 class TimeCellContainer extends Component<

@@ -6,7 +6,7 @@ import { TDayTime, TEvent } from "../../../models";
 import { CalendarContext } from "../../../constants";
 import { TimeService } from "../../../services";
 
-const EventGroupPresenter: React.FC<EventGroupContainerModule.Prensenter> = (
+const EventGroupPresenter: React.FC<EventGroupContainerModule.Props> = (
   props
 ) => {
   const context = useContext(CalendarContext);

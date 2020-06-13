@@ -16,8 +16,8 @@ const EventPresenter: React.FC<Props> = (props) => {
     <div
       style={{
         top: props.top,
-        bottom: props.bottom || "unset",
-        height: props.height || "unset",
+        bottom: props.bottom || undefined,
+        height: props.height || undefined,
       }}
       className="event"
     >

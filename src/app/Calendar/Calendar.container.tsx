@@ -21,6 +21,7 @@ class CalendarContainer extends React.Component<
       dayTime: this.props.dayTime || this.props.workingTime,
       timeFormat: this.props.timeFormat || DEFAULT_TIME_FORMAT,
       events: this.props.events,
+      label: this.props.label
     };
 
     return <CalendarPresenter {...calendarDatas} />;

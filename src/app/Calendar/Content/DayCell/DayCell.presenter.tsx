@@ -2,7 +2,7 @@ import React from "react";
 import "./DayCell.style.scss";
 import { DayCellContainerModule } from "./DayCell.container";
 
-const DayCellPresenter: React.FC<DayCellContainerModule.Presenter> = (
+const DayCellPresenter: React.FC<DayCellContainerModule.Props> = (
   props
 ) => {
   return (

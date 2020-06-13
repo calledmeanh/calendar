@@ -4,7 +4,7 @@ import { TimeCellContainerModule } from "./TimeCell.container";
 import { CalendarContext } from "../../../../constants";
 import { TimeService } from "../../../../services";
 
-const TimeCellPresenter: React.FC<TimeCellContainerModule.Presenter> = (
+const TimeCellPresenter: React.FC<TimeCellContainerModule.Props> = (
   props
 ) => {
   const { displayDuration, workingTime, timeFormat, dayTime } = useContext(

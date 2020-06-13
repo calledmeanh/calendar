@@ -6,7 +6,7 @@ import DayCell from "../DayCell";
 import EventGroup from "../../EventGroup";
 import { CalendarContext } from "../../../../constants";
 
-const DayColumnPresenter: React.FC<DayColumnContainerModule.Presenter> = (
+const DayColumnPresenter: React.FC<DayColumnContainerModule.Props> = (
   props
 ) => {
   const context = useContext(CalendarContext);

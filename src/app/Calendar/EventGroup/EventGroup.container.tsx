@@ -7,10 +7,6 @@ export declare module EventGroupContainerModule {
     events: TEvent[] | undefined;
   };
   export type State = {};
-
-  export type Prensenter = {
-    events: TEvent[] | undefined;
-  };
 }
 
 class EventGroupContainer extends Component<

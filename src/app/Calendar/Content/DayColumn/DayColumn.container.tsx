@@ -7,7 +7,6 @@ export declare module DayColumnContainerModule {
     events: TEvent[] | undefined;
   };
   export type State = {};
-  export type Presenter = { events: TEvent[] | undefined };
 }
 
 class DayColumnContainer extends Component<

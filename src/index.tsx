@@ -5,6 +5,7 @@ import "./index.scss";
 import Calendar from "./app/Calendar";
 import { DEFAULT_DURATION, DEFAULT_WORKING_TIME } from "./constants";
 import { EVENTS } from "./mocks";
+import UserAva from "./app/Calendar/UserAva";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,12 +13,12 @@ ReactDOM.render(
       <Calendar
         duration={DEFAULT_DURATION}
         workingTime={DEFAULT_WORKING_TIME}
-
         // for test
         timeFormat={12}
         // displayDuration={1800}
-        dayTime={{start: 25200, end: 72000}}
+        dayTime={{ start: 25200, end: 72000 }}
         events={EVENTS}
+        label={<UserAva />}
       />
     </div>
   </React.StrictMode>,

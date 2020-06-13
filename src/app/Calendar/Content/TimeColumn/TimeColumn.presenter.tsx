@@ -5,7 +5,7 @@ import TimeCell from "../TimeCell";
 import { TimeService } from "../../../../services";
 import { CalendarContext } from "../../../../constants";
 
-const TimeColumnPresenter: React.FC<TimeColumnContainerModule.Presenter> = (
+const TimeColumnPresenter: React.FC<TimeColumnContainerModule.Props> = (
   props
 ) => {
   const context = useContext(CalendarContext);

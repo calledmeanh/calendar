@@ -1,6 +1,6 @@
 import { TEvent } from "./event";
 
-export type TCalendarssss = {
+export type TCalendar = {
   duration: number;
   displayDuration: number;
   workingTime: TDayTime;
@@ -22,6 +22,7 @@ export type TCalendarProps = {
   dayTime?: TDayTime;
   timeFormat?: TTimeFormat;
   events?: TEvent[] | undefined;
+  label?: string | React.ReactNode;
 };
 
 export type TCalendarContext = {
@@ -31,4 +32,5 @@ export type TCalendarContext = {
   dayTime: TDayTime;
   timeFormat: TTimeFormat;
   events?: TEvent[] | undefined;
+  label: string | React.ReactNode;
 };
