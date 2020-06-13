@@ -24,9 +24,7 @@ const EventPresenter: React.FC<Props> = (props) => {
         e.preventDefault();
         console.log(props.event);
       }}
-      onMouseMove={(e: any) => {
-        // e.target.style["pointer-events"] = "none"
-      }}
+      
     >
       <div className="event-title">{props.event.title}</div>
       <div className="event-content">

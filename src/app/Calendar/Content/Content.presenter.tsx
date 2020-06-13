@@ -28,7 +28,7 @@ const ContentPresenter: React.FC<ContentContainerModule.Props> = () => {
     <div className="content">
       <TimeColumn {...childProps} />
 
-      <div className="content-data">
+      <div className="content-inner">
         {week.map((w, i) => {
           return <DayColumn key={w} events={mappingEvents[w] || undefined} eventGroupId={i} />;
         })}

@@ -3,10 +3,11 @@
   display: flex;
   position: relative;
   overflow-y: auto;
-  &-data {
+  &-inner {
     display: flex;
     flex: 1 0;
     position: relative;
+    height: 100%;
     .ghost {
       position: absolute;
       background-color: lightblue;
