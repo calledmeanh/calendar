@@ -6,16 +6,10 @@ import DayCell from "../DayCell";
 import EventGroup from "../../EventGroup";
 import { CalendarContext } from "../../../../constants";
 
-const DayColumnPresenter: React.FC<DayColumnContainerModule.Props> = (
-  props
-) => {
+const DayColumnPresenter: React.FC<DayColumnContainerModule.Props> = (props) => {
   const context = useContext(CalendarContext);
 
-  const times = TimeService.calcTimeJump(
-    context.dayTime.end,
-    context.dayTime.start,
-    context.duration
-  );
+  const times = TimeService.calcTimeJump(context.dayTime.end, context.dayTime.start, context.duration);
 
   return (
     <div className="day-column">
@@ -27,15 +21,11 @@ const DayColumnPresenter: React.FC<DayColumnContainerModule.Props> = (
             key={i}
             data=""
             timeJumpIndex={i}
-            isWorkingTime={TimeService.checkWorkingTime(
-              context.dayTime,
-              context.workingTime,
-              currentTime
-            )}
+            isWorkingTime={TimeService.checkWorkingTime(context.dayTime, context.workingTime, currentTime)}
           />
         );
       })}
-      <EventGroup events={props.events} />
+      <EventGroup {...props} />
     </div>
   );
 };

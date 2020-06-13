@@ -54,14 +54,14 @@ const EventGroupPresenter: React.FC<EventGroupContainerModule.Props> = (
 
   useEffect(() => {
     handleResponsive();
-    window.addEventListener("resize", handleResponsive);
+    /* window.addEventListener("resize", handleResponsive);
     return () => {
       window.removeEventListener("resize", handleResponsive);
-    };
+    }; */
   }, []);
 
   return (
-    <div className="event-group">
+    <div className="event-group" data-event-group-id={props.eventGroupId}>
       {timeCellPos &&
         props.events &&
         props.events.length > 0 &&

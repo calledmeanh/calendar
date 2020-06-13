@@ -5,17 +5,14 @@ import { TEvent } from "../../../models";
 export declare module EventGroupContainerModule {
   export type Props = {
     events: TEvent[] | undefined;
+    eventGroupId: number;
   };
   export type State = {};
 }
 
-class EventGroupContainer extends Component<
-  EventGroupContainerModule.Props,
-  EventGroupContainerModule.State
-> {
-  
+class EventGroupContainer extends Component<EventGroupContainerModule.Props, EventGroupContainerModule.State> {
   render() {
-    return <EventGroupPresenter events={this.props.events} />;
+    return <EventGroupPresenter {...this.props} />;
   }
 }
 

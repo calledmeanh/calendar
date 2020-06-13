@@ -20,16 +20,18 @@ const EventPresenter: React.FC<Props> = (props) => {
         height: props.height || undefined,
       }}
       className="event"
+      onClick={(e) => {
+        e.preventDefault();
+        console.log(props.event);
+      }}
+      onMouseMove={(e: any) => {
+        // e.target.style["pointer-events"] = "none"
+      }}
     >
       <div className="event-title">{props.event.title}</div>
       <div className="event-content">
-        <div>
-          Start:{" "}
-          {moment(props.event.timeStart).format(DEFAULT_DATE_TIME_FOTMAT)}
-        </div>
-        <div>
-          End: {moment(props.event.timeEnd).format(DEFAULT_DATE_TIME_FOTMAT)}
-        </div>
+        <div>Start: {moment(props.event.timeStart).format(DEFAULT_DATE_TIME_FOTMAT)}</div>
+        <div>End: {moment(props.event.timeEnd).format(DEFAULT_DATE_TIME_FOTMAT)}</div>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { TEvent } from "../../../../models";
 export declare module DayColumnContainerModule {
   export type Props = {
     events: TEvent[] | undefined;
+    eventGroupId: number;
   };
   export type State = {};
 }
@@ -14,7 +15,7 @@ class DayColumnContainer extends Component<
   DayColumnContainerModule.State
 > {
   render() {
-    return <DayColumnPresenter events={this.props.events} />;
+    return <DayColumnPresenter {...this.props} />;
   }
 }
 

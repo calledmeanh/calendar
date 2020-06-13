@@ -3,4 +3,17 @@
   display: flex;
   position: relative;
   overflow-y: auto;
+  &-data {
+    display: flex;
+    flex: 1 0;
+    position: relative;
+    .ghost {
+      position: absolute;
+      background-color: lightblue;
+      color: black;
+      padding: 0 8px;
+      z-index: 1;
+      transition: 0.15s left linear;
+    }
+  }
 }
