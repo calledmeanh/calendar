@@ -23,34 +23,31 @@ class ContentContainer extends Component<ContentContainerModule.Props, ContentCo
 
   componentDidMount() {
     const self = this;
-    const eventGroups = document.querySelectorAll(".event-group");
+    const contentInner = document.querySelector(".content-inner") as HTMLDivElement;
     const ghost = document.getElementById("ghost") as HTMLDivElement;
 
-    eventGroups.forEach((child) => {
-      child.addEventListener("mousemove", function (e: any) {
-        const contentContainer = document.querySelector(".content") as HTMLDivElement;
-        const contentInner = document.querySelector(".content-inner") as HTMLDivElement;
-        const topInner = self.getOffset(contentInner, "top");
-        const leftInner = self.getOffset(contentInner, "left");
-        const scrollTop = contentContainer.scrollTop;
-        const scrollLeft = contentContainer.scrollLeft;
-        const offsetY = e.pageY - topInner + scrollTop;
-        const offsetX = e.pageX - leftInner + scrollLeft;
+    contentInner.addEventListener("mousemove", function (e: any) {
+      const contentContainer = document.querySelector(".content") as HTMLDivElement;
+      const topInner = self.getOffset(contentInner, "top");
+      const leftInner = self.getOffset(contentInner, "left");
+      const scrollTop = contentContainer.scrollTop;
+      const scrollLeft = contentContainer.scrollLeft;
+      const offsetY = e.pageY - topInner + scrollTop;
+      const offsetX = e.pageX - leftInner + scrollLeft;
 
-        const dayCell = document.querySelector(".day-cell");
-        const dcBox = dayCell?.getBoundingClientRect() as DOMRect;
+      const dayCell = document.querySelector(".day-cell");
+      const dcBox = dayCell?.getBoundingClientRect() as DOMRect;
 
-        const colIdx = Math.floor(offsetX / dcBox.width);
-        const lineIdx = Math.floor(offsetY / dcBox.height);
-        const top = lineIdx * dcBox.height;
-        const left = colIdx * dcBox.width;
-        ghost.style.left = left + "px";
-        ghost.style.top = top + "px";
-        ghost.style.width = dcBox.width + "px";
-        ghost.style.height = dcBox.height + "px";
-        const seconds = lineIdx * self.context.duration + self.context.dayTime.start;
-        ghost.innerHTML = TimeService.convertSecondsToHourString(seconds, self.context.timeFormat);
-      });
+      const colIdx = Math.floor(offsetX / dcBox.width);
+      const lineIdx = Math.floor(offsetY / dcBox.height);
+      const top = lineIdx * dcBox.height;
+      const left = colIdx * dcBox.width;
+      ghost.style.left = left + "px";
+      ghost.style.top = top + "px";
+      ghost.style.width = dcBox.width + "px";
+      ghost.style.height = dcBox.height + "px";
+      const seconds = lineIdx * self.context.duration + self.context.dayTime.start;
+      ghost.innerHTML = TimeService.convertSecondsToHourString(seconds, self.context.timeFormat);
     });
   }
   render() {
