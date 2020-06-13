@@ -14,5 +14,5 @@ export const CalendarContext = React.createContext<TCalendarContext>({
   dayTime: DEFAULT_WORKING_TIME,
   timeFormat: DEFAULT_TIME_FORMAT,
   label: "",
-  groupTime: 60 * SECONDS_PER_HOUR
+  groupTime: 60 * SECONDS_PER_HOUR,
 });

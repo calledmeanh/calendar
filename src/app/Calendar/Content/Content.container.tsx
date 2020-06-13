@@ -8,7 +8,10 @@ export declare module ContentContainerModule {
   export type State = {};
 }
 
-class ContentContainer extends Component<ContentContainerModule.Props, ContentContainerModule.State> {
+class ContentContainer extends Component<
+  ContentContainerModule.Props,
+  ContentContainerModule.State
+> {
   static contextType = CalendarContext;
   getOffset = (elem: any, dir: "left" | "top") => {
     const offset = dir === "left" ? "offsetLeft" : "offsetTop";
@@ -23,11 +26,15 @@ class ContentContainer extends Component<ContentContainerModule.Props, ContentCo
 
   componentDidMount() {
     const self = this;
-    const contentInner = document.querySelector(".content-inner") as HTMLDivElement;
+    const contentInner = document.querySelector(
+      ".content-inner"
+    ) as HTMLDivElement;
     const ghost = document.getElementById("ghost") as HTMLDivElement;
 
     contentInner.addEventListener("mousemove", function (e: any) {
-      const contentContainer = document.querySelector(".content") as HTMLDivElement;
+      const contentContainer = document.querySelector(
+        ".content"
+      ) as HTMLDivElement;
       const topInner = self.getOffset(contentInner, "top");
       const leftInner = self.getOffset(contentInner, "left");
       const scrollTop = contentContainer.scrollTop;
@@ -46,8 +53,12 @@ class ContentContainer extends Component<ContentContainerModule.Props, ContentCo
       ghost.style.top = top + "px";
       ghost.style.width = dcBox.width + "px";
       ghost.style.height = dcBox.height + "px";
-      const seconds = lineIdx * self.context.duration + self.context.dayTime.start;
-      ghost.innerHTML = TimeService.convertSecondsToHourString(seconds, self.context.timeFormat);
+      const seconds =
+        lineIdx * self.context.duration + self.context.dayTime.start;
+      ghost.innerHTML = TimeService.convertSecondsToHourString(
+        seconds,
+        self.context.timeFormat
+      );
     });
   }
   render() {

@@ -6,8 +6,12 @@ import { CalendarContext } from "../../../../constants";
 
 const DayCellPresenter: React.FC<DayCellContainerModule.Props> = (props) => {
   const context = useContext(CalendarContext);
-  const groupTime = TimeService.checkGroupTime(context.groupTime, context.duration, props.timeJumpIndex);
-  
+  const groupTime = TimeService.checkGroupTime(
+    context.groupTime,
+    context.duration,
+    props.timeJumpIndex
+  );
+
   return (
     <div
       className="day-cell"

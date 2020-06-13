@@ -9,7 +9,10 @@ export declare module CalendarContainerModule {
   export type Presenter = TCalendarContext;
 }
 
-class CalendarContainer extends React.Component<CalendarContainerModule.Props, CalendarContainerModule.State> {
+class CalendarContainer extends React.Component<
+  CalendarContainerModule.Props,
+  CalendarContainerModule.State
+> {
   render() {
     const calendarDatas: TCalendarContext = {
       duration: this.props.duration,
