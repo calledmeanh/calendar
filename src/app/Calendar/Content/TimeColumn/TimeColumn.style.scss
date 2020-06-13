@@ -3,5 +3,8 @@
   flex-direction: column;
   .time-cell:last-child {
     border-bottom: 1px solid #ddd;
+    & > .time-cell-line {
+      border-bottom: none;
+    }
   }
 }

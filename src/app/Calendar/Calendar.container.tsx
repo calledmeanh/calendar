@@ -1,7 +1,7 @@
 import React from "react";
 import CalendarPresenter from "./Calendar.presenter";
 import { TCalendarProps, TCalendarContext } from "../../models";
-import { DEFAULT_TIME_FORMAT } from "../../constants";
+import { DEFAULT_TIME_FORMAT, SECONDS_PER_HOUR } from "../../constants";
 
 export declare module CalendarContainerModule {
   export type Props = TCalendarProps;
@@ -9,10 +9,7 @@ export declare module CalendarContainerModule {
   export type Presenter = TCalendarContext;
 }
 
-class CalendarContainer extends React.Component<
-  CalendarContainerModule.Props,
-  CalendarContainerModule.State
-> {
+class CalendarContainer extends React.Component<CalendarContainerModule.Props, CalendarContainerModule.State> {
   render() {
     const calendarDatas: TCalendarContext = {
       duration: this.props.duration,
@@ -21,7 +18,8 @@ class CalendarContainer extends React.Component<
       dayTime: this.props.dayTime || this.props.workingTime,
       timeFormat: this.props.timeFormat || DEFAULT_TIME_FORMAT,
       events: this.props.events,
-      label: this.props.label
+      label: this.props.label,
+      groupTime: this.props.groupTime || SECONDS_PER_HOUR,
     };
 
     return <CalendarPresenter {...calendarDatas} />;

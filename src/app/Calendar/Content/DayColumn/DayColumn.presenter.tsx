@@ -26,6 +26,7 @@ const DayColumnPresenter: React.FC<DayColumnContainerModule.Props> = (
           <DayCell
             key={i}
             data=""
+            timeJumpIndex={i}
             isWorkingTime={TimeService.checkWorkingTime(
               context.dayTime,
               context.workingTime,

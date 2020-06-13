@@ -5,6 +5,7 @@ import {
   DEFAULT_WORKING_TIME,
   DEFAULT_TIME_FORMAT,
 } from "./calendar";
+import { SECONDS_PER_HOUR } from "./time";
 
 export const CalendarContext = React.createContext<TCalendarContext>({
   duration: DEFAULT_DURATION,
@@ -12,5 +13,6 @@ export const CalendarContext = React.createContext<TCalendarContext>({
   workingTime: DEFAULT_WORKING_TIME,
   dayTime: DEFAULT_WORKING_TIME,
   timeFormat: DEFAULT_TIME_FORMAT,
-  label: ""
+  label: "",
+  groupTime: 60 * SECONDS_PER_HOUR
 });

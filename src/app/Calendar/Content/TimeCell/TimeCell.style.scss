@@ -2,8 +2,8 @@
   $height: 2rem;
   padding: 0 1.2rem;
   width: 100%;
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
+  border-left: 1px solid #dee3e7;
+  border-right: 1px solid #dee3e7;
   min-height: $height;
   display: table-cell;
   box-sizing: border-box;
@@ -16,7 +16,7 @@
     right: 1.2rem;
   }
   &-line {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #dee3e7;
     width: 0.8rem;
     position: absolute;
     right: 0;

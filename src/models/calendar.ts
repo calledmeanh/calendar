@@ -23,6 +23,7 @@ export type TCalendarProps = {
   timeFormat?: TTimeFormat;
   events?: TEvent[] | undefined;
   label?: string | React.ReactNode;
+  groupTime?: number;
 };
 
 export type TCalendarContext = {
@@ -33,4 +34,5 @@ export type TCalendarContext = {
   timeFormat: TTimeFormat;
   events?: TEvent[] | undefined;
   label: string | React.ReactNode;
+  groupTime: number;
 };
