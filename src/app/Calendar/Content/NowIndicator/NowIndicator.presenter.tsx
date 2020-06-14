@@ -8,13 +8,17 @@ const NowIndicatorPresenter: React.FC = () => {
   const context = useContext(CalendarContext);
 
   useEffect(() => {
-    setInterval(() => {
-      const currentDate = new Date();
-      const currentTime = TimeService.covertHourToSeconds(currentDate.getHours(), currentDate.getMinutes());
+    const nowDate = new Date();
+    const nowTime = TimeService.covertHourToSeconds(nowDate.getHours(), nowDate.getMinutes()) + nowDate.getSeconds();
+    if (nowTime < context.dayTime.end) {
+      setInterval(() => {
+        const currentDate = new Date();
+        const currentTime = TimeService.covertHourToSeconds(currentDate.getHours(), currentDate.getMinutes());
 
-      setTimeTextBox(currentTime);
-      onChangeTime(currentTime);
-    }, 1000);
+        setTimeTextBox(currentTime);
+        onChangeTime(currentTime);
+      }, 1000);
+    }
 
     // eslint-disable-next-line
   }, []);
