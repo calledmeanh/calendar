@@ -6,13 +6,12 @@ import { DEFAULT_TIME_FORMAT, SECONDS_PER_HOUR } from "../../constants";
 export declare module CalendarContainerModule {
   export type Props = TCalendarProps;
   export type State = {};
-  export type Presenter = TCalendarContext;
+  export type Presenter = TCalendarContext & {
+    nowIndicator?: boolean;
+  };
 }
 
-class CalendarContainer extends React.Component<
-  CalendarContainerModule.Props,
-  CalendarContainerModule.State
-> {
+class CalendarContainer extends React.Component<CalendarContainerModule.Props, CalendarContainerModule.State> {
   render() {
     const calendarDatas: TCalendarContext = {
       duration: this.props.duration,
@@ -23,6 +22,7 @@ class CalendarContainer extends React.Component<
       events: this.props.events,
       label: this.props.label,
       groupTime: this.props.groupTime || SECONDS_PER_HOUR,
+      nowIndicator: Boolean(this.props.nowIndicator),
     };
 
     return <CalendarPresenter {...calendarDatas} />;

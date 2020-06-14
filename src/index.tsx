@@ -19,6 +19,7 @@ ReactDOM.render(
         dayTime={{ start: 25200, end: 72000 }}
         events={EVENTS}
         label={<UserAva />}
+        nowIndicator
       />
     </div>
   </React.StrictMode>,

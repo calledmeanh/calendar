@@ -7,9 +7,10 @@ import DayColumn from "./DayColumn";
 import { CalendarContext, DEFAULT_DATE_FOTMAT } from "../../../constants";
 import { week } from "../../../mocks";
 import Ghost from "./Ghost";
+import NowIndicator from "./NowIndicator";
 
 const ContentPresenter: React.FC<ContentContainerModule.Props> = () => {
-  const { duration, displayDuration, workingTime, dayTime, events } = useContext(CalendarContext);
+  const { duration, displayDuration, workingTime, dayTime, events, nowIndicator } = useContext(CalendarContext);
   const childProps = {
     duration,
     displayDuration,
@@ -27,6 +28,7 @@ const ContentPresenter: React.FC<ContentContainerModule.Props> = () => {
 
   return (
     <div className="content">
+      {nowIndicator && <NowIndicator />}
       <TimeColumn {...childProps} />
 
       <div className="content-inner">
