@@ -2,7 +2,7 @@ import React from "react";
 import "./Event.style.scss";
 import { TEvent } from "../../../../models";
 import moment from "moment";
-import { DEFAULT_DATE_TIME_FOTMAT } from "../../../../constants";
+import { DEFAULT_DATE_TIME_FOTMAT, CLASSNAMES } from "../../../../constants";
 
 interface Props {
   top: string;
@@ -19,21 +19,15 @@ const EventPresenter: React.FC<Props> = (props) => {
         bottom: props.bottom || undefined,
         height: props.height || undefined,
       }}
-      className="event"
+      className={CLASSNAMES.EVENT}
       onClick={(e) => {
         e.preventDefault();
-        console.log(props.event);
       }}
     >
-      <div className="event-title">{props.event.title}</div>
-      <div className="event-content">
-        <div>
-          Start:{" "}
-          {moment(props.event.timeStart).format(DEFAULT_DATE_TIME_FOTMAT)}
-        </div>
-        <div>
-          End: {moment(props.event.timeEnd).format(DEFAULT_DATE_TIME_FOTMAT)}
-        </div>
+      <div className={CLASSNAMES.EVENT_TITLE}>{props.event.title}</div>
+      <div className={CLASSNAMES.EVENT_CONTENT}>
+        <div>Start: {moment(props.event.timeStart).format(DEFAULT_DATE_TIME_FOTMAT)}</div>
+        <div>End: {moment(props.event.timeEnd).format(DEFAULT_DATE_TIME_FOTMAT)}</div>
       </div>
     </div>
   );

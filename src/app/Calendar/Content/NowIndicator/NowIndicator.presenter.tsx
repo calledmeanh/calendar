@@ -2,7 +2,8 @@ import React, { useEffect, useContext } from "react";
 
 import "./NowIndicator.style.scss";
 import { TimeService } from "../../../../services";
-import { CalendarContext } from "../../../../constants";
+import { CalendarContext, CLASSNAMES } from "../../../../constants";
+import { addFirstChar } from "../../../../utils";
 
 const NowIndicatorPresenter: React.FC = () => {
   const context = useContext(CalendarContext);
@@ -20,19 +21,20 @@ const NowIndicatorPresenter: React.FC = () => {
   }, []);
 
   const setTimeTextBox = (currentTime: number) => {
-    const timeCell = document.querySelector(".time-cell") as HTMLDivElement;
-    const nowIndicatorText = document.querySelector(".now-indicator-text") as HTMLDivElement;
-
+    const timeCell = document.querySelector(addFirstChar(CLASSNAMES.TIME_CELL, ".")) as HTMLDivElement;
+    const nowIndicatorText = document.querySelector(addFirstChar(CLASSNAMES.NOW_INDICATOR_TEXT, ".")) as HTMLDivElement;
     const timeCellBox = timeCell.getBoundingClientRect();
-    nowIndicatorText.style.width = timeCellBox.width + "px";
     const time = TimeService.convertSecondsToHourString(currentTime, context.timeFormat);
+
+    nowIndicatorText.style.width = timeCellBox.width + "px";
     nowIndicatorText.innerHTML = time;
   };
 
   const onChangeTime = (currentTime: number) => {
-    const timeCell = document.querySelector(".time-cell") as HTMLDivElement;
-    const nowIndicator = document.querySelector(".now-indicator") as HTMLDivElement;
+    const timeCell = document.querySelector(addFirstChar(CLASSNAMES.TIME_CELL, ".")) as HTMLDivElement;
     const timeCellBox = timeCell.getBoundingClientRect();
+
+    const nowIndicator = document.querySelector(addFirstChar(CLASSNAMES.NOW_INDICATOR, ".")) as HTMLDivElement;
 
     const top = TimeService.calcDistanceBetweenTimes(
       currentTime,
@@ -41,14 +43,13 @@ const NowIndicatorPresenter: React.FC = () => {
       timeCellBox.height
     );
 
-    nowIndicator.style.visibility = "visible";
     nowIndicator.style.top = top + "px";
   };
 
   return (
-    <div className="now-indicator">
-      <div className="now-indicator-text"></div>
-      <div className="now-indicator-tail"></div>
+    <div className={CLASSNAMES.NOW_INDICATOR}>
+      <div className={CLASSNAMES.NOW_INDICATOR_TEXT}></div>
+      <div className={CLASSNAMES.NOW_INDICATOR_TAIL}></div>
     </div>
   );
 };

@@ -5,7 +5,6 @@ import { TEvent } from "../../../models";
 export declare module EventGroupContainerModule {
   export type Props = {
     events: TEvent[] | undefined;
-    eventGroupId: number;
   };
   export type State = {};
 }

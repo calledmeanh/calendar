@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
-import moment from "moment";
 import "./Content.style.scss";
+import moment from "moment";
 import { ContentContainerModule } from "./Content.container";
 import TimeColumn from "./TimeColumn";
 import DayColumn from "./DayColumn";
-import { CalendarContext, DEFAULT_DATE_FOTMAT } from "../../../constants";
+import { CalendarContext, DEFAULT_DATE_FOTMAT, CLASSNAMES } from "../../../constants";
 import { week } from "../../../mocks";
 import Ghost from "./Ghost";
 import NowIndicator from "./NowIndicator";
 
-const ContentPresenter: React.FC<ContentContainerModule.Props> = () => {
+const ContentPresenter: React.FC<ContentContainerModule.Props> = (props) => {
   const { duration, displayDuration, workingTime, dayTime, events, nowIndicator } = useContext(CalendarContext);
   const childProps = {
     duration,
@@ -18,7 +18,7 @@ const ContentPresenter: React.FC<ContentContainerModule.Props> = () => {
     dayTime,
   };
 
-  let mappingEvents: { [key: string]: any } = {};
+  const mappingEvents: { [key: string]: any } = {};
   if (events && events.length) {
     for (let i = 0; i < events.length; i++) {
       const evtDay = moment(events[i].timeStart).format(DEFAULT_DATE_FOTMAT).toString();
@@ -27,13 +27,13 @@ const ContentPresenter: React.FC<ContentContainerModule.Props> = () => {
   }
 
   return (
-    <div className="content">
+    <div className={CLASSNAMES.CONTENT}>
       {nowIndicator && <NowIndicator />}
       <TimeColumn {...childProps} />
 
-      <div className="content-inner">
-        {week.map((w, i) => {
-          return <DayColumn key={w} events={mappingEvents[w] || undefined} eventGroupId={i} />;
+      <div className={CLASSNAMES.CONTENT_INNER}>
+        {week.map((w) => {
+          return <DayColumn key={w} events={mappingEvents[w] || undefined} />;
         })}
         <Ghost />
       </div>

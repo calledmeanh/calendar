@@ -6,9 +6,7 @@ import { DEFAULT_TIME_FORMAT, SECONDS_PER_HOUR } from "../../constants";
 export declare module CalendarContainerModule {
   export type Props = TCalendarProps;
   export type State = {};
-  export type Presenter = TCalendarContext & {
-    nowIndicator?: boolean;
-  };
+  export type Presenter = TCalendarContext;
 }
 
 class CalendarContainer extends React.Component<CalendarContainerModule.Props, CalendarContainerModule.State> {

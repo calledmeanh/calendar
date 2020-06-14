@@ -7,7 +7,6 @@
   z-index: 3;
   min-height: 2.2rem;
   max-height: 2.2rem;
-  visibility: hidden;
   transition: 0.3s all ease;
 
   &-text {
@@ -23,7 +22,6 @@
   }
   &-tail {
     border-top: 1px solid #ea4335;
-    height: 0;
     flex-grow: 1;
     z-index: 1;
   }

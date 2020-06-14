@@ -2,18 +2,17 @@ import React, { useEffect } from "react";
 import "./Calendar.style.scss";
 import Header from "./Header";
 import Content from "./Content";
-import { CalendarContext } from "../../constants";
+import { CalendarContext, CLASSNAMES } from "../../constants";
 import { CalendarContainerModule } from "./Calendar.container";
+import { addFirstChar } from "../../utils";
 
-const CalendarPresenter: React.FC<CalendarContainerModule.Presenter> = (
-  props
-) => {
+const CalendarPresenter: React.FC<CalendarContainerModule.Presenter> = (props) => {
   useEffect(() => {
     /* calculate first column */
     let width = 0;
-    const labelEl = document.querySelector(".header-label") as HTMLElement;
+    const labelEl = document.querySelector(addFirstChar(CLASSNAMES.HEADER_LABEL, ".")) as HTMLElement;
     const labelPos = labelEl.getBoundingClientRect();
-    const timeColumnEl = document.querySelector(".time-column") as HTMLElement;
+    const timeColumnEl = document.querySelector(addFirstChar(CLASSNAMES.TIME_COLUMN, ".")) as HTMLElement;
     const timeColumnPos = timeColumnEl.getBoundingClientRect();
     if (labelPos.width < timeColumnPos.width) {
       width = timeColumnPos.width;
@@ -21,21 +20,21 @@ const CalendarPresenter: React.FC<CalendarContainerModule.Presenter> = (
       width = labelPos.width;
     }
 
-    labelEl.style.width = `${width}px`;
-    timeColumnEl.style.width = `${width}px`;
+    labelEl.style.width = width + "px";
+    timeColumnEl.style.width = width + "px";
 
-    /* set Height for content el */
-    const parentEl = document.querySelector(".calendar") as HTMLElement;
+    /* set height for content el */
+    const parentEl = document.querySelector(addFirstChar(CLASSNAMES.CALENDAR, ".")) as HTMLElement;
     const parentBox = parentEl.getBoundingClientRect();
     const headerEl = parentEl.firstChild as HTMLElement;
     const headerBox = headerEl.getBoundingClientRect();
     const contentMaxHeight = parentBox.height - headerBox.height;
 
-    const contenEl = document.querySelector(".content") as HTMLElement;
-    contenEl.style.maxHeight = `${contentMaxHeight}px`;
+    const contenEl = document.querySelector(addFirstChar(CLASSNAMES.CONTENT, ".")) as HTMLElement;
+    contenEl.style.maxHeight = contentMaxHeight + "px";
   }, []);
   return (
-    <div className="calendar">
+    <div className={CLASSNAMES.CALENDAR}>
       <CalendarContext.Provider value={{ ...props }}>
         <Header />
         <Content />

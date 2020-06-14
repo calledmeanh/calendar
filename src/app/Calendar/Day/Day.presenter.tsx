@@ -1,18 +1,11 @@
 import React from "react";
 import "./Day.style.scss";
 import { DayContainerModule } from "./Day.container";
+import { CLASSNAMES } from "../../../constants";
 
-const DayPresenter: React.FC<DayContainerModule.Prensenter> = (props) => {
+const DayPresenter: React.FC<DayContainerModule.Props> = (props) => {
   const { data } = props;
-  const daySplited = data.split(/\s/g);
-  const number = daySplited[0];
-  const text = daySplited[1];
-  return (
-    <div className="day">
-      <span className="day-number">{number}</span>
-      <span className="day-text">{text}</span>
-    </div>
-  );
+  return <div className={CLASSNAMES.DAY}>{data}</div>;
 };
 
 export default DayPresenter;

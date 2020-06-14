@@ -5,15 +5,11 @@ import { TEvent } from "../../../../models";
 export declare module DayColumnContainerModule {
   export type Props = {
     events: TEvent[] | undefined;
-    eventGroupId: number;
   };
   export type State = {};
 }
 
-class DayColumnContainer extends Component<
-  DayColumnContainerModule.Props,
-  DayColumnContainerModule.State
-> {
+class DayColumnContainer extends Component<DayColumnContainerModule.Props, DayColumnContainerModule.State> {
   render() {
     return <DayColumnPresenter {...this.props} />;
   }

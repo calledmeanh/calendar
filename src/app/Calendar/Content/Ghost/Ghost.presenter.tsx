@@ -1,19 +1,18 @@
 import React, { useEffect, useContext } from "react";
-import { TimeService } from "../../../../services";
-import { CalendarContext } from "../../../../constants";
-import { getOffsetToDocument } from "../../../../utils";
-
 import "./Ghost.style.scss";
+import { TimeService } from "../../../../services";
+import { CalendarContext, CLASSNAMES } from "../../../../constants";
+import { getOffsetToDocument, addFirstChar } from "../../../../utils";
 
 const GhostPresenter: React.FC = () => {
   const context = useContext(CalendarContext);
 
   useEffect(() => {
-    const contentInner = document.querySelector(".content-inner") as HTMLDivElement;
-    const ghost = document.getElementById("ghost") as HTMLDivElement;
+    const contentInner = document.querySelector(addFirstChar(CLASSNAMES.CONTENT_INNER, ".")) as HTMLDivElement;
+    const ghost = document.getElementById(CLASSNAMES.GHOST) as HTMLDivElement;
 
     contentInner.addEventListener("mousemove", function (e: any) {
-      const contentContainer = document.querySelector(".content") as HTMLDivElement;
+      const contentContainer = document.querySelector(addFirstChar(CLASSNAMES.CONTENT, ".")) as HTMLDivElement;
       const topInner = getOffsetToDocument(contentInner, "top");
       const leftInner = getOffsetToDocument(contentInner, "left");
       const scrollTop = contentContainer.scrollTop;
@@ -21,8 +20,8 @@ const GhostPresenter: React.FC = () => {
       const offsetY = e.pageY - topInner + scrollTop;
       const offsetX = e.pageX - leftInner + scrollLeft;
 
-      const dayCell = document.querySelector(".day-cell");
-      const dcBox = dayCell?.getBoundingClientRect() as DOMRect;
+      const dayCell = document.querySelector(addFirstChar(CLASSNAMES.DAY_CELL, ".")) as HTMLDivElement;
+      const dcBox = dayCell.getBoundingClientRect() as DOMRect;
 
       const colIdx = Math.floor(offsetX / dcBox.width);
       const lineIdx = Math.floor(offsetY / dcBox.height);
@@ -41,13 +40,13 @@ const GhostPresenter: React.FC = () => {
       ghost.innerHTML = TimeService.convertSecondsToHourString(seconds, context.timeFormat);
     });
 
-    contentInner.addEventListener("mouseleave", function () {
+    contentInner.addEventListener("mouseleave", function (e) {
       ghost.style.display = "none";
     });
     // eslint-disable-next-line
   }, []);
 
-  return <div id="ghost" className="ghost"></div>;
+  return <div id={CLASSNAMES.GHOST} className={CLASSNAMES.GHOST}></div>;
 };
 
 export default GhostPresenter;

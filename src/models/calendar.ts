@@ -1,5 +1,6 @@
 import { TEvent } from "./event";
 
+// TODO: chỗ này bị thừa vì ko có chỗ nào sử dụng
 export type TCalendar = {
   duration: number;
   displayDuration: number;

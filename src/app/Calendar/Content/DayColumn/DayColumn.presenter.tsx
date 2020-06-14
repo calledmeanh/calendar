@@ -4,22 +4,16 @@ import { DayColumnContainerModule } from "./DayColumn.container";
 import { TimeService } from "../../../../services";
 import DayCell from "../DayCell";
 import EventGroup from "../../EventGroup";
-import { CalendarContext } from "../../../../constants";
+import { CalendarContext, CLASSNAMES } from "../../../../constants";
 
-const DayColumnPresenter: React.FC<DayColumnContainerModule.Props> = (
-  props
-) => {
+const DayColumnPresenter: React.FC<DayColumnContainerModule.Props> = (props) => {
   const context = useContext(CalendarContext);
 
-  const times = TimeService.calcTimeJump(
-    context.dayTime.end,
-    context.dayTime.start,
-    context.duration
-  );
-
+  const times = TimeService.calcTimeJump(context.dayTime.end, context.dayTime.start, context.duration);
+  const timeArr = new Array(times).fill(0);
   return (
-    <div className="day-column">
-      {new Array(times).fill(0).map((t, i) => {
+    <div className={CLASSNAMES.DAY_COLUMN}>
+      {timeArr.fill(0).map((t, i) => {
         const currentTime = context.dayTime.start + i * context.duration;
 
         return (
@@ -27,11 +21,7 @@ const DayColumnPresenter: React.FC<DayColumnContainerModule.Props> = (
             key={i}
             data=""
             timeJumpIndex={i}
-            isWorkingTime={TimeService.checkWorkingTime(
-              context.dayTime,
-              context.workingTime,
-              currentTime
-            )}
+            isWorkingTime={TimeService.checkWorkingTime(context.dayTime, context.workingTime, currentTime)}
           />
         );
       })}
