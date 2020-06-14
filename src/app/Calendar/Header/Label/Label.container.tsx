@@ -9,10 +9,7 @@ export declare module LabelContainerModule {
   export type State = {};
 }
 
-class LabelContainer extends Component<
-  LabelContainerModule.Props,
-  LabelContainerModule.State
-> {
+class LabelContainer extends Component<LabelContainerModule.Props, LabelContainerModule.State> {
   render() {
     return <LabelPresenter item={this.props.item} />;
   }

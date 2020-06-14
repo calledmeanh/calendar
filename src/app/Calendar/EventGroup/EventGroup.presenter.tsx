@@ -10,7 +10,7 @@ import { addFirstChar } from "../../../utils";
 const EventGroupPresenter: React.FC<EventGroupContainerModule.Props> = (props) => {
   const context = useContext(CalendarContext);
   const [timeCellPos, setTimeCellPos] = useState<any>(null);
-  
+
   const calcEventPosition = (dayTime: TDayTime, evt: TEvent, eventPos: any) => {
     const evtStartTime = new Date(evt.timeStart);
     const evtEndTime = new Date(evt.timeEnd);

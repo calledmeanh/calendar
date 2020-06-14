@@ -9,10 +9,7 @@ export declare module EventGroupContainerModule {
   export type State = {};
 }
 
-class EventGroupContainer extends Component<
-  EventGroupContainerModule.Props,
-  EventGroupContainerModule.State
-> {
+class EventGroupContainer extends Component<EventGroupContainerModule.Props, EventGroupContainerModule.State> {
   render() {
     return <EventGroupPresenter {...this.props} />;
   }

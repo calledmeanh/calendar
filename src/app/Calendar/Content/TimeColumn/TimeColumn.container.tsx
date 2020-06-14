@@ -6,10 +6,7 @@ export declare module TimeColumnContainerModule {
   export type State = {};
 }
 
-class TimeColumnContainer extends Component<
-  TimeColumnContainerModule.Props,
-  TimeColumnContainerModule.State
-> {
+class TimeColumnContainer extends Component<TimeColumnContainerModule.Props, TimeColumnContainerModule.State> {
   render() {
     return <TimeColumnPresenter />;
   }

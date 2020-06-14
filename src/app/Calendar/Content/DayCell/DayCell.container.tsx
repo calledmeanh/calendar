@@ -10,10 +10,7 @@ export declare module DayCellContainerModule {
   export type State = {};
 }
 
-class DayCellContainer extends Component<
-  DayCellContainerModule.Props,
-  DayCellContainerModule.State
-> {
+class DayCellContainer extends Component<DayCellContainerModule.Props, DayCellContainerModule.State> {
   render() {
     return <DayCellPresenter {...this.props} />;
   }
