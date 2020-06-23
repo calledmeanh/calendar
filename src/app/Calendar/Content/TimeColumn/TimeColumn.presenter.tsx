@@ -13,7 +13,7 @@ const TimeColumnPresenter: React.FC<TimeColumnContainerModule.Props> = (props) =
     <div className={CLASSNAMES.TIME_COLUMN}>
       {timeArr.map((t, i) => {
         const currentTime = context.dayTime.start + i * context.duration;
-        
+
         return (
           <TimeCell
             key={i}
