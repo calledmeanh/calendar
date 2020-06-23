@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import "./DayCell.style.scss";
 import { DayCellContainerModule } from "./DayCell.container";
-import { TimeService } from "../../../../services";
+import { TimeUtil } from "../../../../utils";
 import { CalendarContext, CLASSNAMES } from "../../../../constants";
 
 const DayCellPresenter: React.FC<DayCellContainerModule.Props> = (props) => {
   const context = useContext(CalendarContext);
-  const groupTime = TimeService.checkGroupTime(context.groupTime, context.duration, props.timeJumpIndex);
+  const groupTime = TimeUtil.checkGroupTime(context.groupTime, context.duration, props.timeJumpIndex);
 
   return (
     <div

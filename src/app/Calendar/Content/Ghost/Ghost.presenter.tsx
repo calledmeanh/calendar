@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import "./Ghost.style.scss";
-import { TimeService } from "../../../../services";
+import { TimeUtil } from "../../../../utils";
 import { CalendarContext, CLASSNAMES } from "../../../../constants";
 import { getOffsetToDocument, addFirstChar } from "../../../../utils";
 
@@ -37,7 +37,7 @@ const GhostPresenter: React.FC = () => {
       ghost.style.width = dcBox.width + "px";
       ghost.style.height = dcBox.height + "px";
       const seconds = lineIdx * context.duration + context.dayTime.start;
-      ghost.innerHTML = TimeService.convertSecondsToHourString(seconds, context.timeFormat);
+      ghost.innerHTML = TimeUtil.convertSecondsToHourString(seconds, context.timeFormat);
     });
 
     contentInner.addEventListener("mouseleave", function (e) {

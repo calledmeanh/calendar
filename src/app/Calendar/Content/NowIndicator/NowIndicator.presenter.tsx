@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 
 import "./NowIndicator.style.scss";
-import { TimeService } from "../../../../services";
+import { TimeUtil } from "../../../../utils";
 import { CalendarContext, CLASSNAMES } from "../../../../constants";
 import { addFirstChar } from "../../../../utils";
 
@@ -10,11 +10,11 @@ const NowIndicatorPresenter: React.FC = () => {
 
   useEffect(() => {
     const nowDate = new Date();
-    const nowTime = TimeService.covertHourToSeconds(nowDate.getHours(), nowDate.getMinutes()) + nowDate.getSeconds();
+    const nowTime = TimeUtil.covertHourToSeconds(nowDate.getHours(), nowDate.getMinutes()) + nowDate.getSeconds();
     if (nowTime < context.dayTime.end) {
       setInterval(() => {
         const currentDate = new Date();
-        const currentTime = TimeService.covertHourToSeconds(currentDate.getHours(), currentDate.getMinutes());
+        const currentTime = TimeUtil.covertHourToSeconds(currentDate.getHours(), currentDate.getMinutes());
 
         setTimeTextBox(currentTime);
         onChangeTime(currentTime);
@@ -28,7 +28,7 @@ const NowIndicatorPresenter: React.FC = () => {
     const timeCell = document.querySelector(addFirstChar(CLASSNAMES.TIME_CELL, ".")) as HTMLDivElement;
     const nowIndicatorText = document.querySelector(addFirstChar(CLASSNAMES.NOW_INDICATOR_TEXT, ".")) as HTMLDivElement;
     const timeCellBox = timeCell.getBoundingClientRect();
-    const time = TimeService.convertSecondsToHourString(currentTime, context.timeFormat);
+    const time = TimeUtil.convertSecondsToHourString(currentTime, context.timeFormat);
 
     nowIndicatorText.style.width = timeCellBox.width + "px";
     nowIndicatorText.innerHTML = time;
@@ -40,7 +40,7 @@ const NowIndicatorPresenter: React.FC = () => {
 
     const nowIndicator = document.querySelector(addFirstChar(CLASSNAMES.NOW_INDICATOR, ".")) as HTMLDivElement;
 
-    const top = TimeService.calcDistanceBetweenTimes(
+    const top = TimeUtil.calcDistanceBetweenTimes(
       currentTime,
       context.dayTime.start,
       context.duration,

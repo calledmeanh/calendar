@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./DayColumn.style.scss";
 import { DayColumnContainerModule } from "./DayColumn.container";
-import { TimeService } from "../../../../services";
+import { TimeUtil } from "../../../../utils";
 import DayCell from "../DayCell";
 import EventGroup from "../../EventGroup";
 import { CalendarContext, CLASSNAMES } from "../../../../constants";
@@ -9,7 +9,7 @@ import { CalendarContext, CLASSNAMES } from "../../../../constants";
 const DayColumnPresenter: React.FC<DayColumnContainerModule.Props> = (props) => {
   const context = useContext(CalendarContext);
 
-  const times = TimeService.calcTimeJump(context.dayTime.end, context.dayTime.start, context.duration);
+  const times = TimeUtil.calcTimeJump(context.dayTime.end, context.dayTime.start, context.duration);
   const timeArr = new Array(times).fill(0);
   return (
     <div className={CLASSNAMES.DAY_COLUMN}>
@@ -21,7 +21,7 @@ const DayColumnPresenter: React.FC<DayColumnContainerModule.Props> = (props) => 
             key={i}
             data=""
             timeJumpIndex={i}
-            isWorkingTime={TimeService.checkWorkingTime(context.dayTime, context.workingTime, currentTime)}
+            isWorkingTime={TimeUtil.checkWorkingTime(context.dayTime, context.workingTime, currentTime)}
           />
         );
       })}

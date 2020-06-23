@@ -1,7 +1,7 @@
 import { SECONDS_PER_HOUR, SECONDS_PER_MINUTE, HAFT_DAY_SECONDS } from "../constants";
 import { TDayTime, TTimeFormat } from "../models";
 
-export const TimeService = {
+export const TimeUtil = {
   checkGroupTime,
   covertHourToSeconds,
   covertSecondsToHour,
@@ -11,23 +11,6 @@ export const TimeService = {
   checkWorkingTime,
   calcDistanceBetweenTimes,
 };
-
-function checkGroupTime(
-  groupTimeDuration: number,
-  duration: number,
-  timeJumpIndex: number,
-  groupBy: "bottom" | "top" = "bottom"
-): boolean {
-  const groupStep = groupTimeDuration / duration;
-  let index = timeJumpIndex + 1;
-  if (groupBy === "top") {
-    index = timeJumpIndex;
-  }
-  if (index % groupStep === 0) {
-    return true;
-  }
-  return false;
-}
 
 function calcDistanceBetweenTimes(end: number, start: number, duration: number, lineHeight: number): number {
   const jumps = calcTimeJump(end, start, duration);
@@ -39,28 +22,10 @@ function calcDistanceBetweenTimes(end: number, start: number, duration: number, 
   return height + restHeight;
 }
 
-function covertHourToSeconds(hour: number, minute: number): number {
-  const result = hour * SECONDS_PER_HOUR + minute * SECONDS_PER_MINUTE;
-  return result;
-}
-
-function covertSecondsToHour(seconds: number): { hour: number; minute: number } {
-  const hour = Math.floor(seconds / SECONDS_PER_HOUR);
-  const minute = (seconds - hour * SECONDS_PER_HOUR) / SECONDS_PER_MINUTE;
-  return {
-    hour,
-    minute: Math.floor(minute),
-  };
-}
-
 function calcTimeJump(end: number, start: number, duration: number) {
   const S = end - start;
   const step = S / duration;
   return Math.floor(step);
-}
-
-function checkToDisplayTime(current: number, start: number, displayDuration: number): boolean {
-  return (current - start) % displayDuration === 0 ? true : false;
 }
 
 function convertSecondsToHourString(seconds: number, timeFormat?: TTimeFormat): string {
@@ -79,19 +44,54 @@ function convertSecondsToHourString(seconds: number, timeFormat?: TTimeFormat): 
   return timeString;
 }
 
+function covertSecondsToHour(seconds: number): { hour: number; minute: number } {
+  const hour = Math.floor(seconds / SECONDS_PER_HOUR);
+  const minute = (seconds - hour * SECONDS_PER_HOUR) / SECONDS_PER_MINUTE;
+  return {
+    hour,
+    minute: Math.floor(minute),
+  };
+}
+
+function formatHourOrMinute(data: number): string {
+  return ("0" + data).slice(-2);
+}
+
+function covertHourToSeconds(hour: number, minute: number): number {
+  const result = hour * SECONDS_PER_HOUR + minute * SECONDS_PER_MINUTE;
+  return result;
+}
+
+function checkToDisplayTime(current: number, start: number, displayDuration: number): boolean {
+  return (current - start) % displayDuration === 0 ? true : false;
+}
+
 function checkWorkingTime(dayTime: TDayTime, workingTime: TDayTime, current: number): boolean {
   // không có dayTime
   if (dayTime.end === workingTime.end && dayTime.start === workingTime.start) {
     return false;
   }
 
-  if (workingTime.start <= current && current <= workingTime.end) {
+  if (workingTime.start <= current && current < workingTime.end) {
     return true;
   }
 
   return false;
 }
 
-function formatHourOrMinute(data: number): string {
-  return ("0" + data).slice(-2);
+function checkGroupTime(
+  groupTimeDuration: number,
+  duration: number,
+  timeJumpIndex: number,
+  groupBy: "bottom" | "top" = "bottom"
+): boolean {
+  const groupStep = groupTimeDuration / duration;
+  let index = timeJumpIndex + 1;
+  if (groupBy === "top") {
+    index = timeJumpIndex;
+  }
+  if (index % groupStep === 0) {
+    return true;
+  }
+  return false;
 }

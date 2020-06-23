@@ -4,7 +4,7 @@ import { EventGroupContainerModule } from "./EventGroup.container";
 import Event from "../Content/Event/Event.presenter";
 import { TDayTime, TEvent } from "../../../models";
 import { CalendarContext, CLASSNAMES } from "../../../constants";
-import { TimeService } from "../../../services";
+import { TimeUtil } from "../../../utils";
 import { addFirstChar } from "../../../utils";
 
 const EventGroupPresenter: React.FC<EventGroupContainerModule.Props> = (props) => {
@@ -14,11 +14,11 @@ const EventGroupPresenter: React.FC<EventGroupContainerModule.Props> = (props) =
   const calcEventPosition = (dayTime: TDayTime, evt: TEvent, eventPos: any) => {
     const evtStartTime = new Date(evt.timeStart);
     const evtEndTime = new Date(evt.timeEnd);
-    const evtStartSeconds = TimeService.covertHourToSeconds(evtStartTime.getHours(), evtStartTime.getMinutes());
-    const evtEndSeconds = TimeService.covertHourToSeconds(evtEndTime.getHours(), evtEndTime.getMinutes());
+    const evtStartSeconds = TimeUtil.covertHourToSeconds(evtStartTime.getHours(), evtStartTime.getMinutes());
+    const evtEndSeconds = TimeUtil.covertHourToSeconds(evtEndTime.getHours(), evtEndTime.getMinutes());
 
-    const top = TimeService.calcDistanceBetweenTimes(evtStartSeconds, dayTime.start, context.duration, eventPos.height);
-    const height = TimeService.calcDistanceBetweenTimes(
+    const top = TimeUtil.calcDistanceBetweenTimes(evtStartSeconds, dayTime.start, context.duration, eventPos.height);
+    const height = TimeUtil.calcDistanceBetweenTimes(
       evtEndSeconds,
       evtStartSeconds,
       300,
