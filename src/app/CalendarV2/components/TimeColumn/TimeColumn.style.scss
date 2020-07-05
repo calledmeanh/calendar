@@ -1,0 +1,18 @@
+.time-column {
+  overflow: hidden;
+  background-color: #ccffff;
+  border-right: 1px solid red;
+  &__label {
+    position: sticky;
+    top: 0;
+    height: 6.4rem;
+    background-color: lightblue;
+    padding-left: 1rem;
+  }
+
+  .time-cell {
+    padding-right: 1rem;
+    min-height: 2rem;
+    border-top: 1px solid gray;
+  }
+}

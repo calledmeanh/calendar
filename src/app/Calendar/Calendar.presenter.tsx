@@ -14,11 +14,8 @@ const CalendarPresenter: React.FC<CalendarContainerModule.Presenter> = (props) =
     const labelPos = labelEl.getBoundingClientRect();
     const timeColumnEl = document.querySelector(addFirstChar(CLASSNAMES.TIME_COLUMN, ".")) as HTMLElement;
     const timeColumnPos = timeColumnEl.getBoundingClientRect();
-    if (labelPos.width < timeColumnPos.width) {
-      width = timeColumnPos.width;
-    } else {
-      width = labelPos.width;
-    }
+
+    width = labelPos.width < timeColumnPos.width ? timeColumnPos.width : labelPos.width;
 
     labelEl.style.width = width + "px";
     timeColumnEl.style.width = width + "px";

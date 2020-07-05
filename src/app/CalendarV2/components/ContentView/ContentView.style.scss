@@ -1,0 +1,23 @@
+.content-view {
+  position: relative;
+  display: flex;
+  flex: 1;
+  overflow-x: hidden;
+
+  &__col {
+    border-left: 1px solid gray;
+    height: max-content;
+
+    &__header {
+      position: sticky;
+      top: 0;
+      height: 6.4rem;
+      background-color: lightblue;
+      user-select: none;
+    }
+    &__line {
+      border-top: 1px solid gray;
+      min-height: 2rem;
+    }
+  }
+}

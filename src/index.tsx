@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
 import "./index.scss";
-import Calendar from "./app/Calendar";
+import Calendar from "./app/CalendarV2";
 import { DEFAULT_DURATION, DEFAULT_WORKING_TIME } from "./constants";
 import { EVENTS } from "./mocks";
 import UserAva from "./app/Calendar/UserAva";
