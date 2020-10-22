@@ -2,26 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
 import "./index.scss";
-import Calendar from "./app/CalendarV2";
-import { DEFAULT_DURATION, DEFAULT_WORKING_TIME } from "./constants";
-import { EVENTS } from "./mocks";
-import UserAva from "./app/Calendar/UserAva";
 
 ReactDOM.render(
   <React.StrictMode>
-    <div style={{ width: "100vw", height: "100vh", padding: "4.8rem" }}>
-      <Calendar
-        duration={DEFAULT_DURATION}
-        workingTime={DEFAULT_WORKING_TIME}
-        // for test
-        timeFormat={12}
-        // displayDuration={1800}
-        dayTime={{ start: 25200, end: 72000 }}
-        events={EVENTS}
-        label={<UserAva />}
-        nowIndicator
-      />
-    </div>
+    <div style={{ width: "100vw", height: "100vh", padding: "4.8rem" }}></div>
   </React.StrictMode>,
   document.getElementById("root")
 );

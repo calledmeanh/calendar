@@ -1,4 +1,4 @@
-import { SECONDS_PER_HOUR, SECONDS_PER_MINUTE, HAFT_DAY_SECONDS } from "../constants";
+import { CONFIG } from "../constants";
 import { TDayTime, TTimeFormat } from "../models";
 
 export const TimeUtil = {
@@ -30,23 +30,23 @@ function calcTimeJump(end: number, start: number, duration: number) {
 
 function convertSecondsToHourString(seconds: number, timeFormat?: TTimeFormat): string {
   let tempSeconds = seconds;
-  if (timeFormat === 12 && seconds >= 13 * SECONDS_PER_HOUR) {
-    tempSeconds = seconds - 12 * SECONDS_PER_HOUR;
+  if (timeFormat === 12 && seconds >= 13 * CONFIG.SECONDS_PER_HOUR) {
+    tempSeconds = seconds - 12 * CONFIG.SECONDS_PER_HOUR;
   }
   let time = covertSecondsToHour(Math.abs(tempSeconds));
 
   let timeString = `${formatHourOrMinute(time.hour)}:${formatHourOrMinute(time.minute)}`;
 
   if (timeFormat === 12) {
-    timeString = `${timeString} ${seconds <= HAFT_DAY_SECONDS ? "AM" : "PM"}`;
+    timeString = `${timeString} ${seconds <= CONFIG.HAFT_DAY_SECONDS ? "AM" : "PM"}`;
   }
 
   return timeString;
 }
 
 function covertSecondsToHour(seconds: number): { hour: number; minute: number } {
-  const hour = Math.floor(seconds / SECONDS_PER_HOUR);
-  const minute = (seconds - hour * SECONDS_PER_HOUR) / SECONDS_PER_MINUTE;
+  const hour = Math.floor(seconds / CONFIG.SECONDS_PER_HOUR);
+  const minute = (seconds - hour * CONFIG.SECONDS_PER_HOUR) / CONFIG.SECONDS_PER_MINUTE;
   return {
     hour,
     minute: Math.floor(minute),
@@ -58,7 +58,7 @@ function formatHourOrMinute(data: number): string {
 }
 
 function covertHourToSeconds(hour: number, minute: number): number {
-  const result = hour * SECONDS_PER_HOUR + minute * SECONDS_PER_MINUTE;
+  const result = hour * CONFIG.SECONDS_PER_HOUR + minute * CONFIG.SECONDS_PER_MINUTE;
   return result;
 }
 

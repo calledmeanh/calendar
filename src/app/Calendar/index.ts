@@ -1,2 +1,2 @@
-import Calendar from "./Calendar.container";
+import Calendar from "./Calendar";
 export default Calendar;

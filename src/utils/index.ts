@@ -1,3 +1,2 @@
-export * from "./html-element";
-export * from "./string";
+export * from "./dom";
 export * from "./time";
