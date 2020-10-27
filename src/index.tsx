@@ -7,12 +7,12 @@ import { CONFIG } from "./constants";
 
 ReactDOM.render(
   <React.StrictMode>
-    <div style={{ width: "100vw", height: "100vh", padding: "4.8rem" }}>
+    <div style={{ width: "100vw", height: "100vh", padding: "2.4rem" }}>
       <Calendar
         duration={CONFIG.DEFAULT_DURATION}
         displayDuration={CONFIG.DEFAULT_DURATION}
         workingTime={CONFIG.DEFAULT_WORKING_TIME}
-        dayTime={CONFIG.DEFAULT_WORKING_TIME}
+        dayTime={CONFIG.DEFAULT_DAY_TIME}
         timeFormat={CONFIG.DEFAULT_TIME_FORMAT}
         groupTime={CONFIG.DEFAULT_GROUP_TIME}
         nowIndicator={true}

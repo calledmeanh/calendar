@@ -12,7 +12,7 @@ export const Select = styled.select`
   outline: none;
   background: #fff;
   cursor: pointer;
-  font-size: 16px;
+  font-size: ${STYLES.FONT_SIZE};
   transition: ${STYLES.TRANSITION};
   &:hover {
     box-shadow: 0 2px 10px 0 rgba(16, 25, 40, 0.2);
