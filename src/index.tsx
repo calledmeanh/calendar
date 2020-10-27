@@ -1,11 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-import "./index.scss";
+import "./index.css";
+import Calendar from "./app";
+import { CONFIG } from "./constants";
 
 ReactDOM.render(
   <React.StrictMode>
-    <div style={{ width: "100vw", height: "100vh", padding: "4.8rem" }}></div>
+    <div style={{ width: "100vw", height: "100vh", padding: "4.8rem" }}>
+      <Calendar
+        duration={CONFIG.DEFAULT_DURATION}
+        displayDuration={CONFIG.DEFAULT_DURATION}
+        workingTime={CONFIG.DEFAULT_WORKING_TIME}
+        dayTime={CONFIG.DEFAULT_WORKING_TIME}
+        timeFormat={CONFIG.DEFAULT_TIME_FORMAT}
+        groupTime={CONFIG.DEFAULT_GROUP_TIME}
+        nowIndicator={true}
+      />
+    </div>
   </React.StrictMode>,
   document.getElementById("root")
 );

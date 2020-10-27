@@ -1,24 +1,26 @@
-const SECONDS_PER_HOUR = 3600;
-const SECONDS_PER_MINUTE = 60;
+import { TDayTime, TTimeFormat } from "../models";
 
-const HAFT_DAY_SECONDS = 12 * SECONDS_PER_HOUR - 1; // 11h59m59s
+const SECONDS_PER_HOUR: number = 3600;
+const SECONDS_PER_MINUTE: number = 60;
 
-const DEFAULT_DURATION = 15 * SECONDS_PER_MINUTE;
+const HAFT_DAY_SECONDS: number = 12 * SECONDS_PER_HOUR - 1; // 11h59m59s
 
-const DEFAULT_TIME_FORMAT = 24;
+const DEFAULT_DURATION: number = 15 * SECONDS_PER_MINUTE;
 
-const DEFAULT_GROUP_TIME = 60 * SECONDS_PER_HOUR;
+const DEFAULT_TIME_FORMAT: TTimeFormat = 24;
 
-const DEFAULT_WORKING_TIME = {
+const DEFAULT_GROUP_TIME: number = 60 * SECONDS_PER_HOUR;
+
+const DEFAULT_WORKING_TIME: TDayTime = {
   start: 8 * SECONDS_PER_HOUR,
   end: 24 * SECONDS_PER_HOUR,
 };
 
-const DEFAULT_DATE_FOTMAT = "YYYY-MM-DD";
+const DEFAULT_DATE_FOTMAT: string = "YYYY/MM/DD";
 
-const DEFAULT_TIME_FOTMAT = "hh:mm:ss";
+const DEFAULT_TIME_FOTMAT: string = "hh:mm:ss";
 
-const DEFAULT_DATE_TIME_FOTMAT = "DD MM YYYY hh:mm:ss";
+const DEFAULT_DATE_TIME_FOTMAT: string = "DD MM YYYY hh:mm:ss";
 
 export const CONFIG = {
   SECONDS_PER_HOUR,
